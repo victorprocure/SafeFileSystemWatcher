@@ -12,8 +12,8 @@ internal static class Program
         private static void Main()
         {
             using (var cancel = new CancellationTokenSource())
+            using (var watcher = new Watcher(InternalChanger, config, cts.Token))
             {
-                var watcher = new Watcher(OnFileEvent, new FileSystemEventConfiguration("c:\\temp"), cancel.Token);
                 watcher.Watch();    
 
                 Console.ReadLine();
@@ -34,14 +34,15 @@ internal static class Program
         private static void Main()
         {
             using (var cancel = new CancellationTokenSource())
+            using (var watcher = new FileSystemEventCollection(cancel.Token, "c:\\temp"))
             {
-                var watcher = new FileSystemEventCollection(cancel.Token, "c:\\temp").GetEnumerator();
+                var watcherEnumerator = watcher.GetEnumerator();
 
                 Task.Run(() =>
                   {
-                      while (watcher.MoveNext())
+                      while (watcherEnumerator.MoveNext())
                       {
-                          var item = watcher.Current;
+                          var item = watcherEnumerator.Current;
 
                           Console.WriteLine("{0} {1} {2}", item.FullPath, item.ChangeType, item.Name);
                       }
