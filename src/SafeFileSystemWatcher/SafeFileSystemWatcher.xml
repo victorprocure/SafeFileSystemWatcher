@@ -56,6 +56,13 @@
             Intializes a new <see cref="T:SafeFileSystemWatcher.Configurations.FileSystemEventCollectionConfiguration"/>
             </summary>
         </member>
+        <member name="M:SafeFileSystemWatcher.Configurations.FileSystemEventCollectionConfiguration.#ctor(System.String,System.String)">
+            <summary>
+            Intializes a new <see cref="T:SafeFileSystemWatcher.Configurations.FileSystemEventCollectionConfiguration"/>
+            </summary>
+            <param name="directory">Directory to monitor</param>
+            <param name="filePattern">File pattern to monitor within directory</param>
+        </member>
         <member name="P:SafeFileSystemWatcher.Configurations.FileSystemEventCollectionConfiguration.DuplicateEventDelayWindow">
             <summary>
             Gets or sets <see cref="P:SafeFileSystemWatcher.Configurations.FileSystemEventCollectionConfiguration.DuplicateEventDelayWindow"/>, this

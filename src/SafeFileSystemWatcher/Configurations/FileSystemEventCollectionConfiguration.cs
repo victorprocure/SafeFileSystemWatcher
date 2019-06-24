@@ -14,7 +14,12 @@ namespace SafeFileSystemWatcher.Configurations
         {
         }
 
-        internal FileSystemEventCollectionConfiguration(string directory, string filePattern = null)
+        /// <summary>
+        /// Intializes a new <see cref="FileSystemEventCollectionConfiguration"/>
+        /// </summary>
+        /// <param name="directory">Directory to monitor</param>
+        /// <param name="filePattern">File pattern to monitor within directory</param>
+        public FileSystemEventCollectionConfiguration(string directory, string filePattern = null)
         {
             DirectoryToMonitor = directory;
             if (!string.IsNullOrEmpty(filePattern))
