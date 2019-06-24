@@ -146,5 +146,32 @@
             </remarks>
             <returns>Non duplicate <see cref="T:System.IO.FileSystemEventArgs"/></returns>
         </member>
+        <member name="T:SafeFileSystemWatcher.Watcher">
+            <summary>
+            Background threadsafe watcher for <see cref="T:System.IO.FileSystemEventArgs"/>
+            </summary>
+        </member>
+        <member name="M:SafeFileSystemWatcher.Watcher.#ctor(System.Action{System.IO.FileSystemEventArgs},SafeFileSystemWatcher.Configurations.FileSystemEventCollectionConfiguration,System.Threading.CancellationToken)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SafeFileSystemWatcher.Watcher"/> class.
+            </summary>
+            <param name="callback">Callback to execute on new file system event</param>
+            <param name="configuration">Initial configuration object</param>
+            <param name="cancellationToken">Cancellation token to signal to stop watching</param>
+        </member>
+        <member name="M:SafeFileSystemWatcher.Watcher.#ctor(System.Action{System.IO.FileSystemEventArgs},SafeFileSystemWatcher.Configurations.IFileSystemEventCollectionConfigurationBuilder,SafeFileSystemWatcher.Configurations.FileSystemEventCollectionConfiguration,System.Threading.CancellationToken)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SafeFileSystemWatcher.Watcher"/> class.
+            </summary>
+            <param name="callback">Callback to execute on new file system event</param>
+            <param name="configurationBuilder">Configuration builder to use</param>
+            <param name="configuration">Initial configuration object</param>
+            <param name="cancellationToken">Cancellation token to signal to stop watching</param>
+        </member>
+        <member name="M:SafeFileSystemWatcher.Watcher.Watch">
+            <summary>
+            Begin monitoring directory for file changes
+            </summary>
+        </member>
     </members>
 </doc>
