@@ -1,7 +1,22 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>Victor Procure</Authors>
+    <Company>Procure Software Development</Company>
+    <Copyright>2019</Copyright>
+    <PackageProjectUrl>https://github.com/victorprocure/SafeFileSystemWatcher</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/victorprocure/SafeFileSystemWatcher</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageLicenseExpression>mit</PackageLicenseExpression>
   </PropertyGroup>
+  <ItemGroup>
+    <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
+      <_Parameter1>Tests.$(MSBuildProjectName)</_Parameter1>
+    </AssemblyAttribute>
+  </ItemGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>C:\Development\SafeFileSystemWatcher\src\SafeFileSystemWatcher\SafeFileSystemWatcher.xml</DocumentationFile>
+  </PropertyGroup>
 </Project>

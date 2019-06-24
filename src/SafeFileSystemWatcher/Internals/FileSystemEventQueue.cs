@@ -7,19 +7,21 @@ using System.Threading;
 using System.Timers;
 using Timer = System.Timers.Timer;
 
-namespace SafeFileSystemWatcher
+namespace SafeFileSystemWatcher.Internals
 {
     internal sealed class FileSystemEventQueue : IDisposable
     {
-        private readonly ConcurrentDictionary<string, (FileSystemEventArgs eventArgs, Timer timer)> _dedupeQueue;
+        private readonly ConcurrentDictionary<FileSystemEventArgs, Timer> _dedupeQueue;
         private readonly ConcurrentQueue<FileSystemEventArgs> _queue;
         private readonly SemaphoreSlim _enqueueSemaphore;
+        private readonly double _duplicateDelayWindow;
 
-        internal FileSystemEventQueue()
+        internal FileSystemEventQueue(double duplicateDelayWindow)
         {
-            _dedupeQueue = new ConcurrentDictionary<string, (FileSystemEventArgs eventArgs, Timer timer)>();
+            _dedupeQueue = new ConcurrentDictionary<FileSystemEventArgs, Timer>();
             _queue = new ConcurrentQueue<FileSystemEventArgs>();
             _enqueueSemaphore = new SemaphoreSlim(0);
+            _duplicateDelayWindow = duplicateDelayWindow;
         }
 
         public void Dispose()
@@ -29,16 +31,16 @@ namespace SafeFileSystemWatcher
             {
                 foreach (var info in _dedupeQueue)
                 {
-                    info.Value.timer?.Dispose();
+                    info.Value?.Dispose();
                 }
             }
 
             GC.SuppressFinalize(this);
         }
 
-        public bool TryDequeue(out FileSystemEventArgs fileName, CancellationToken cancellationToken)
+        public bool TryDequeue(out FileSystemEventArgs fileEventArgs, CancellationToken cancellationToken)
         {
-            fileName = null;
+            fileEventArgs = null;
             if (cancellationToken.IsCancellationRequested)
             {
                 Trace.WriteLine("Cancellation has been requested");
@@ -48,7 +50,7 @@ namespace SafeFileSystemWatcher
             try
             {
                 _enqueueSemaphore.Wait(cancellationToken);
-                return _queue.TryDequeue(out fileName);
+                return _queue.TryDequeue(out fileEventArgs);
             }
             catch (OperationCanceledException)
             {
@@ -59,35 +61,36 @@ namespace SafeFileSystemWatcher
 
         public void Enqueue(FileSystemEventArgs fileSystemEventArgs)
         {
-            if (!_dedupeQueue.TryGetValue(fileSystemEventArgs.FullPath, out var eventInfo))
+            if (!_dedupeQueue.TryGetValue(GetOriginatingKey(fileSystemEventArgs), out var timer))
             {
-                eventInfo.eventArgs = fileSystemEventArgs;
-
 #pragma warning disable DF0022 // Marks undisposed objects assinged to a property, originated in an object creation.
-                eventInfo.timer = new Timer { Interval = 200, AutoReset = false };
+                timer = new Timer { Interval = _duplicateDelayWindow, AutoReset = false };
 #pragma warning restore DF0022 // Marks undisposed objects assinged to a property, originated in an object creation.
 
-                eventInfo.timer.Elapsed += OnTimerElapsed;
+                timer.Elapsed += OnTimerElapsed;
 
-                _ = _dedupeQueue.TryAdd(fileSystemEventArgs.FullPath, eventInfo);
+                _dedupeQueue.TryAdd(fileSystemEventArgs, timer);
             }
 
-            eventInfo.timer.Stop();
-            eventInfo.timer.Start();
+            timer.Stop();
+            timer.Start();
         }
+
+        private FileSystemEventArgs GetOriginatingKey(FileSystemEventArgs fileSystemEventArgs)
+            => _dedupeQueue.FirstOrDefault(d => d.Key.IsDuplicate(fileSystemEventArgs)).Key ?? fileSystemEventArgs;
 
         private void OnTimerElapsed(object sender, ElapsedEventArgs e)
         {
             var timer = sender as Timer;
 
-            var file = _dedupeQueue.First(t => t.Value.timer == timer);
-            _queue.Enqueue(file.Value.eventArgs);
-            Debug.WriteLine($"File name added to queue: {file.Key}");
+            var kvp = _dedupeQueue.First(t => t.Value == timer);
+            _queue.Enqueue(kvp.Key);
+            Trace.WriteLine($"File name added to queue: {kvp.Key}");
 
-            if (_dedupeQueue.TryRemove(file.Key, out var removedInfo))
-                removedInfo.timer?.Dispose();
+            if (_dedupeQueue.TryRemove(kvp.Key, out var removedInfo))
+                removedInfo?.Dispose();
 
-            _ = _enqueueSemaphore.Release();
+            _enqueueSemaphore.Release();
         }
     }
 }
