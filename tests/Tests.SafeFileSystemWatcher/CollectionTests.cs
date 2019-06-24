@@ -13,22 +13,15 @@ namespace Tests.SafeFileSystemWatcher
         private static readonly string _tempFileExtension = Guid.NewGuid().ToString("N");
 
         [Fact]
-        public void GivenFileCreatedShouldEnumeratorEvent()
+        public async Task GivenFileCreatedShouldEnumeratorEvent()
         {
             var changeList = new List<string>();
             using (var cts = new CancellationTokenSource())
             {
-                var watcher = new FileSystemEventCollection(cts.Token, Path.GetTempPath(), $"*.{_tempFileExtension}").GetEnumerator();
-                Task.Run(() =>
-                {
-                    while (watcher.MoveNext())
-                    {
-                        changeList.Add(watcher.Current.FullPath);
-                    }
-                });
-
+                cts.CancelAfter(TimeSpan.FromSeconds(5));
+                await RunWatcherAsync(f => changeList.Add(f.FullPath), cts.Token).ConfigureAwait(false);
                 var tempFile = CreateTempFile();
-                Task.Delay(2000).GetAwaiter().GetResult();
+                await Task.Delay(2000).ConfigureAwait(false);
                 TryDeleteFile(tempFile);
                 cts.Cancel();
                 Assert.Contains(changeList, c => c == tempFile);
@@ -36,23 +29,15 @@ namespace Tests.SafeFileSystemWatcher
         }
 
         [Fact]
-        public void GivenFilePresentInDirectoryShouldEnumerateEvent()
+        public async Task GivenFilePresentInDirectoryShouldEnumerateEvent()
         {
             var changeList = new List<string>();
             var tempFile = CreateTempFile();
 
             using (var cts = new CancellationTokenSource())
             {
-                var watcher = new FileSystemEventCollection(cts.Token, Path.GetTempPath(), $"*.{_tempFileExtension}").GetEnumerator();
-                Task.Run(() =>
-                {
-                    while (watcher.MoveNext())
-                    {
-                        changeList.Add(watcher.Current.FullPath);
-                    }
-                });
-
-                Task.Delay(2000).GetAwaiter().GetResult();
+                await RunWatcherAsync(f => changeList.Add(f.FullPath), cts.Token).ConfigureAwait(false);
+                await Task.Delay(2000).ConfigureAwait(false);
                 TryDeleteFile(tempFile);
                 cts.Cancel();
                 Assert.Contains(changeList, c => c == tempFile);
@@ -78,6 +63,21 @@ namespace Tests.SafeFileSystemWatcher
             {
                 return tempFilePath;
             }
+        }
+
+        private Task RunWatcherAsync(Action<FileSystemEventArgs> processAction, CancellationToken cancellationToken)
+        {
+            var watcher = new FileSystemEventCollection(cancellationToken, Path.GetTempPath(), $"*.{_tempFileExtension}").GetEnumerator();
+
+            Task.Run(() =>
+            {
+                while (watcher.MoveNext())
+                {
+                    processAction(watcher.Current);
+                }
+            });
+
+            return Task.CompletedTask;
         }
     }
 }

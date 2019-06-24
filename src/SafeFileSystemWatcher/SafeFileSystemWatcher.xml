@@ -56,6 +56,24 @@
             Intializes a new <see cref="T:SafeFileSystemWatcher.Configurations.FileSystemEventCollectionConfiguration"/>
             </summary>
         </member>
+        <member name="P:SafeFileSystemWatcher.Configurations.FileSystemEventCollectionConfiguration.DuplicateEventDelayWindow">
+            <summary>
+            Gets or sets <see cref="P:SafeFileSystemWatcher.Configurations.FileSystemEventCollectionConfiguration.DuplicateEventDelayWindow"/>, this
+            value represents the time to wait before posting and event from <see cref="T:System.IO.FileSystemWatcher"/>
+            in order to verify it is not a duplicate event
+            </summary>
+        </member>
+        <member name="P:SafeFileSystemWatcher.Configurations.FileSystemEventCollectionConfiguration.DirectoryToMonitor">
+            <summary>
+            Gets or sets <see cref="P:SafeFileSystemWatcher.Configurations.FileSystemEventCollectionConfiguration.DirectoryToMonitor"/>, the directory to monitor for file changes
+            </summary>
+        </member>
+        <member name="P:SafeFileSystemWatcher.Configurations.FileSystemEventCollectionConfiguration.DirectoryFileFilter">
+            <summary>
+            Gets or sets <see cref="P:SafeFileSystemWatcher.Configurations.FileSystemEventCollectionConfiguration.DirectoryFileFilter"/>, the filter to use for monitoring file changes,
+            default value is "*", for all files
+            </summary>
+        </member>
         <member name="T:SafeFileSystemWatcher.Configurations.IFileSystemEventCollectionConfigurationBuilder">
             <summary>
             Builds a complete configuration for <see cref="T:SafeFileSystemWatcher.FileSystemEventCollection"/>
