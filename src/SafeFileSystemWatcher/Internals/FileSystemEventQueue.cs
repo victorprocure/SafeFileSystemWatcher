@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Concurrent;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Timers;
+using Microsoft.Extensions.Logging;
 using Timer = System.Timers.Timer;
 
 namespace SafeFileSystemWatcher.Internals
@@ -12,16 +12,18 @@ namespace SafeFileSystemWatcher.Internals
     internal sealed class FileSystemEventQueue : IDisposable
     {
         private readonly ConcurrentDictionary<FileSystemEventArgs, Timer> _dedupeQueue;
-        private readonly ConcurrentQueue<FileSystemEventArgs> _queue;
-        private readonly SemaphoreSlim _enqueueSemaphore;
         private readonly double _duplicateDelayWindow;
+        private readonly SemaphoreSlim _enqueueSemaphore;
+        private readonly ILogger _logger;
+        private readonly ConcurrentQueue<FileSystemEventArgs> _queue;
 
-        internal FileSystemEventQueue(double duplicateDelayWindow)
+        internal FileSystemEventQueue(double duplicateDelayWindow, ILogger logger)
         {
             _dedupeQueue = new ConcurrentDictionary<FileSystemEventArgs, Timer>();
             _queue = new ConcurrentQueue<FileSystemEventArgs>();
             _enqueueSemaphore = new SemaphoreSlim(0);
             _duplicateDelayWindow = duplicateDelayWindow;
+            _logger = logger;
         }
 
         public void Dispose()
@@ -38,27 +40,6 @@ namespace SafeFileSystemWatcher.Internals
             GC.SuppressFinalize(this);
         }
 
-        public bool TryDequeue(out FileSystemEventArgs fileEventArgs, CancellationToken cancellationToken)
-        {
-            fileEventArgs = null;
-            if (cancellationToken.IsCancellationRequested)
-            {
-                Trace.WriteLine("Cancellation has been requested");
-                return false;
-            }
-
-            try
-            {
-                _enqueueSemaphore.Wait(cancellationToken);
-                return _queue.TryDequeue(out fileEventArgs);
-            }
-            catch (OperationCanceledException)
-            {
-                Trace.WriteLine("Cancellation has been requested");
-                return false;
-            }
-        }
-
         public void Enqueue(FileSystemEventArgs fileSystemEventArgs)
         {
             if (!_dedupeQueue.TryGetValue(GetOriginatingKey(fileSystemEventArgs), out var timer))
@@ -69,11 +50,37 @@ namespace SafeFileSystemWatcher.Internals
 
                 timer.Elapsed += OnTimerElapsed;
 
+                _logger.OriginalTimerAdded(fileSystemEventArgs);
                 _dedupeQueue.TryAdd(fileSystemEventArgs, timer);
+            }
+            else
+            {
+                _logger.DuplicateTimerRestart(fileSystemEventArgs);
             }
 
             timer.Stop();
             timer.Start();
+        }
+
+        public bool TryDequeue(out FileSystemEventArgs fileEventArgs, CancellationToken cancellationToken)
+        {
+            fileEventArgs = null;
+            if (cancellationToken.IsCancellationRequested)
+            {
+                _logger.CancellationRequested();
+                return false;
+            }
+
+            try
+            {
+                _enqueueSemaphore.Wait(cancellationToken);
+                return _queue.TryDequeue(out fileEventArgs);
+            }
+            catch (OperationCanceledException)
+            {
+                _logger.CancellationRequested();
+                return false;
+            }
         }
 
         private FileSystemEventArgs GetOriginatingKey(FileSystemEventArgs fileSystemEventArgs)
@@ -85,7 +92,7 @@ namespace SafeFileSystemWatcher.Internals
 
             var kvp = _dedupeQueue.First(t => t.Value == timer);
             _queue.Enqueue(kvp.Key);
-            Trace.WriteLine($"File name added to queue: {kvp.Key}");
+            _logger.Enqueue(kvp.Key);
 
             if (_dedupeQueue.TryRemove(kvp.Key, out var removedInfo))
                 removedInfo?.Dispose();

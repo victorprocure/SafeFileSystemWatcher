@@ -13,7 +13,7 @@ internal static class Program
         {
             using (var cancel = new CancellationTokenSource())
             {
-                var watcher = new Watcher(OnFileEvent, new FileSystemEventCollectionConfiguration("c:\\temp"), cancel.Token);
+                var watcher = new Watcher(OnFileEvent, new FileSystemEventConfiguration("c:\\temp"), cancel.Token);
                 watcher.Watch();    
 
                 Console.ReadLine();

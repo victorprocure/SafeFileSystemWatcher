@@ -20,7 +20,7 @@ namespace Tests.SafeFileSystemWatcher
             {
                 new Thread(() => RunWatcher(f => changeList.Add(f.FullPath), cts.Token)).Start();
                 var tempFile = CreateTempFile();
-                await Task.Delay(2000).ConfigureAwait(false);
+                await Task.Delay(600).ConfigureAwait(false);
                 TryDeleteFile(tempFile);
                 cts.Cancel();
                 Assert.Contains(changeList, c => c == tempFile);
@@ -36,10 +36,39 @@ namespace Tests.SafeFileSystemWatcher
             using (var cts = new CancellationTokenSource())
             {
                 new Thread(() => RunWatcher(f => changeList.Add(f.FullPath), cts.Token)).Start();
-                await Task.Delay(2000).ConfigureAwait(false);
+                await Task.Delay(600).ConfigureAwait(false);
                 TryDeleteFile(tempFile);
                 cts.Cancel();
                 Assert.Contains(changeList, c => c == tempFile);
+            }
+        }
+
+        [Fact]
+        public async Task GivenMultipleFileEventsShouldNotHaveDuplicates()
+        {
+            var changeList = new List<string>();
+            using (var cts = new CancellationTokenSource())
+            {
+                new Thread(() => RunWatcher(f => changeList.Add(f.FullPath), cts.Token)).Start();
+                var tempFile = CreateTempFile();
+                WriteToFile(tempFile);
+                WriteToFile(tempFile);
+                WriteToFile(tempFile);
+
+                await Task.Delay(600).ConfigureAwait(false);
+                TryDeleteFile(tempFile);
+                cts.Cancel();
+                Assert.Contains(changeList, c => c == tempFile);
+                Assert.Single(changeList);
+            }
+        }
+
+        private static string CreateTempFile()
+        {
+            var tempFilePath = Path.Combine(Path.GetTempPath(), $"{Guid.NewGuid()}.{_tempFileExtension}");
+            using (File.Create(tempFilePath))
+            {
+                return tempFilePath;
             }
         }
 
@@ -55,12 +84,12 @@ namespace Tests.SafeFileSystemWatcher
             }
         }
 
-        private static string CreateTempFile()
+        private static void WriteToFile(string fileName)
         {
-            var tempFilePath = Path.Combine(Path.GetTempPath(), $"{Guid.NewGuid()}.{_tempFileExtension}");
-            using (File.Create(tempFilePath))
+            using (var stream = new StreamWriter(fileName, true))
             {
-                return tempFilePath;
+                const string test = "test";
+                stream.WriteLine(test);
             }
         }
 

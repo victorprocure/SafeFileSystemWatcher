@@ -16,11 +16,11 @@ namespace Tests.SafeFileSystemWatcher
         public void GivenFileSystemEventWatcherShouldExecuteCallback()
         {
             var changedFiles = new List<string>();
-            var config = new FileSystemEventCollectionConfiguration(Path.GetTempPath(), $"*.{_tempFileExtension}");
+            var config = new FileSystemEventConfiguration(Path.GetTempPath(), $"*.{_tempFileExtension}");
 
             using (var cts = new CancellationTokenSource())
+            using (var watcher = new Watcher(InternalChanger, config, cts.Token))
             {
-                var watcher = new Watcher(InternalChanger, config, cts.Token);
                 watcher.Watch();
 
                 var tempFile = CreateTempFile();

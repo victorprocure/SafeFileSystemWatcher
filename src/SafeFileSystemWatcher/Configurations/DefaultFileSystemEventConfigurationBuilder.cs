@@ -5,23 +5,23 @@ namespace SafeFileSystemWatcher.Configurations
     /// <summary>
     /// Builds a complete configuration for <see cref="FileSystemEventCollection"/>
     /// </summary>
-    internal class DefaultFileSystemEventCollectionConfigurationBuilder : IFileSystemEventCollectionConfigurationBuilder
+    internal class DefaultFileSystemEventConfigurationBuilder : IFileSystemEventConfigurationBuilder
     {
-        private readonly IFileSystemEventCollectionConfigurationValidator _validator;
+        private readonly IFileSystemEventConfigurationValidator _validator;
 
         /// <summary>
-        /// Initializes a new <see cref="IFileSystemEventCollectionConfigurationBuilder"/>
+        /// Initializes a new <see cref="IFileSystemEventConfigurationBuilder"/>
         /// </summary>
-        public DefaultFileSystemEventCollectionConfigurationBuilder()
-            : this(new DefaultFileSystemEventCollectionConfigurationValidator())
+        public DefaultFileSystemEventConfigurationBuilder()
+            : this(new DefaultFileSystemEventConfigurationValidator())
         {
         }
 
         /// <summary>
-        /// Initializes a new <see cref="IFileSystemEventCollectionConfigurationBuilder"/>
+        /// Initializes a new <see cref="IFileSystemEventConfigurationBuilder"/>
         /// </summary>
         /// <param name="validator">Validator to use when building configuration</param>
-        public DefaultFileSystemEventCollectionConfigurationBuilder(IFileSystemEventCollectionConfigurationValidator validator)
+        public DefaultFileSystemEventConfigurationBuilder(IFileSystemEventConfigurationValidator validator)
             => _validator = validator;
 
         /// <summary>
@@ -29,9 +29,9 @@ namespace SafeFileSystemWatcher.Configurations
         /// </summary>
         /// <param name="configuration">Configuration to build against</param>
         /// <returns>Completed configuration</returns>
-        public FileSystemEventCollectionConfiguration Build(FileSystemEventCollectionConfiguration configuration)
+        public FileSystemEventConfiguration Build(FileSystemEventConfiguration configuration)
         {
-            var newConfig = new FileSystemEventCollectionConfiguration();
+            var newConfig = new FileSystemEventConfiguration();
             if (!string.IsNullOrEmpty(configuration.DirectoryFileFilter))
                 newConfig.DirectoryFileFilter = configuration.DirectoryFileFilter;
 

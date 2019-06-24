@@ -5,16 +5,16 @@ using System.IO;
 namespace SafeFileSystemWatcher.Configurations
 {
     /// <summary>
-    /// Default validator for <see cref="FileSystemEventCollectionConfiguration"/>
+    /// Default validator for <see cref="FileSystemEventConfiguration"/>
     /// </summary>
-    internal class DefaultFileSystemEventCollectionConfigurationValidator : IFileSystemEventCollectionConfigurationValidator
+    internal class DefaultFileSystemEventConfigurationValidator : IFileSystemEventConfigurationValidator
     {
         /// <summary>
         /// Try and validate the given configuration
         /// </summary>
         /// <param name="configuration">Configuration to validate</param>
         /// <returns>Returns <c>true</c> if valid, <c>false</c> if not</returns>
-        public bool TryValidate(FileSystemEventCollectionConfiguration configuration)
+        public bool TryValidate(FileSystemEventConfiguration configuration)
         {
             try
             {
@@ -33,7 +33,7 @@ namespace SafeFileSystemWatcher.Configurations
         /// </summary>
         /// <param name="configuration">Configuration to validate</param>
         /// <exception cref="InvalidOperationException">Thrown if the configuration is not valid</exception>
-        public void Validate(FileSystemEventCollectionConfiguration configuration)
+        public void Validate(FileSystemEventConfiguration configuration)
         {
             if (configuration.DuplicateEventDelayWindow == default)
                 throw new InvalidOperationException("Delay window configuration must be set");

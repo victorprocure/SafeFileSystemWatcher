@@ -4,108 +4,108 @@
         <name>SafeFileSystemWatcher</name>
     </assembly>
     <members>
-        <member name="T:SafeFileSystemWatcher.Configurations.DefaultFileSystemEventCollectionConfigurationBuilder">
+        <member name="T:SafeFileSystemWatcher.Configurations.DefaultFileSystemEventConfigurationBuilder">
             <summary>
             Builds a complete configuration for <see cref="T:SafeFileSystemWatcher.FileSystemEventCollection"/>
             </summary>
         </member>
-        <member name="M:SafeFileSystemWatcher.Configurations.DefaultFileSystemEventCollectionConfigurationBuilder.#ctor">
+        <member name="M:SafeFileSystemWatcher.Configurations.DefaultFileSystemEventConfigurationBuilder.#ctor">
             <summary>
-            Initializes a new <see cref="T:SafeFileSystemWatcher.Configurations.IFileSystemEventCollectionConfigurationBuilder"/>
+            Initializes a new <see cref="T:SafeFileSystemWatcher.Configurations.IFileSystemEventConfigurationBuilder"/>
             </summary>
         </member>
-        <member name="M:SafeFileSystemWatcher.Configurations.DefaultFileSystemEventCollectionConfigurationBuilder.#ctor(SafeFileSystemWatcher.Configurations.IFileSystemEventCollectionConfigurationValidator)">
+        <member name="M:SafeFileSystemWatcher.Configurations.DefaultFileSystemEventConfigurationBuilder.#ctor(SafeFileSystemWatcher.Configurations.IFileSystemEventConfigurationValidator)">
             <summary>
-            Initializes a new <see cref="T:SafeFileSystemWatcher.Configurations.IFileSystemEventCollectionConfigurationBuilder"/>
+            Initializes a new <see cref="T:SafeFileSystemWatcher.Configurations.IFileSystemEventConfigurationBuilder"/>
             </summary>
             <param name="validator">Validator to use when building configuration</param>
         </member>
-        <member name="M:SafeFileSystemWatcher.Configurations.DefaultFileSystemEventCollectionConfigurationBuilder.Build(SafeFileSystemWatcher.Configurations.FileSystemEventCollectionConfiguration)">
+        <member name="M:SafeFileSystemWatcher.Configurations.DefaultFileSystemEventConfigurationBuilder.Build(SafeFileSystemWatcher.Configurations.FileSystemEventConfiguration)">
             <summary>
             Build configuration for <see cref="T:SafeFileSystemWatcher.FileSystemEventCollection" />
             </summary>
             <param name="configuration">Configuration to build against</param>
             <returns>Completed configuration</returns>
         </member>
-        <member name="T:SafeFileSystemWatcher.Configurations.DefaultFileSystemEventCollectionConfigurationValidator">
+        <member name="T:SafeFileSystemWatcher.Configurations.DefaultFileSystemEventConfigurationValidator">
             <summary>
-            Default validator for <see cref="T:SafeFileSystemWatcher.Configurations.FileSystemEventCollectionConfiguration"/>
+            Default validator for <see cref="T:SafeFileSystemWatcher.Configurations.FileSystemEventConfiguration"/>
             </summary>
         </member>
-        <member name="M:SafeFileSystemWatcher.Configurations.DefaultFileSystemEventCollectionConfigurationValidator.TryValidate(SafeFileSystemWatcher.Configurations.FileSystemEventCollectionConfiguration)">
+        <member name="M:SafeFileSystemWatcher.Configurations.DefaultFileSystemEventConfigurationValidator.TryValidate(SafeFileSystemWatcher.Configurations.FileSystemEventConfiguration)">
             <summary>
             Try and validate the given configuration
             </summary>
             <param name="configuration">Configuration to validate</param>
             <returns>Returns <c>true</c> if valid, <c>false</c> if not</returns>
         </member>
-        <member name="M:SafeFileSystemWatcher.Configurations.DefaultFileSystemEventCollectionConfigurationValidator.Validate(SafeFileSystemWatcher.Configurations.FileSystemEventCollectionConfiguration)">
+        <member name="M:SafeFileSystemWatcher.Configurations.DefaultFileSystemEventConfigurationValidator.Validate(SafeFileSystemWatcher.Configurations.FileSystemEventConfiguration)">
             <summary>
             Validate the given configuration
             </summary>
             <param name="configuration">Configuration to validate</param>
             <exception cref="T:System.InvalidOperationException">Thrown if the configuration is not valid</exception>
         </member>
-        <member name="T:SafeFileSystemWatcher.Configurations.FileSystemEventCollectionConfiguration">
+        <member name="T:SafeFileSystemWatcher.Configurations.FileSystemEventConfiguration">
             <summary>
             Configuration containment object for <see cref="T:SafeFileSystemWatcher.FileSystemEventCollection"/>
             </summary>
         </member>
-        <member name="M:SafeFileSystemWatcher.Configurations.FileSystemEventCollectionConfiguration.#ctor">
+        <member name="M:SafeFileSystemWatcher.Configurations.FileSystemEventConfiguration.#ctor">
             <summary>
-            Intializes a new <see cref="T:SafeFileSystemWatcher.Configurations.FileSystemEventCollectionConfiguration"/>
+            Intializes a new <see cref="T:SafeFileSystemWatcher.Configurations.FileSystemEventConfiguration"/>
             </summary>
         </member>
-        <member name="M:SafeFileSystemWatcher.Configurations.FileSystemEventCollectionConfiguration.#ctor(System.String,System.String)">
+        <member name="M:SafeFileSystemWatcher.Configurations.FileSystemEventConfiguration.#ctor(System.String,System.String)">
             <summary>
-            Intializes a new <see cref="T:SafeFileSystemWatcher.Configurations.FileSystemEventCollectionConfiguration"/>
+            Intializes a new <see cref="T:SafeFileSystemWatcher.Configurations.FileSystemEventConfiguration"/>
             </summary>
             <param name="directory">Directory to monitor</param>
             <param name="filePattern">File pattern to monitor within directory</param>
         </member>
-        <member name="P:SafeFileSystemWatcher.Configurations.FileSystemEventCollectionConfiguration.DuplicateEventDelayWindow">
+        <member name="P:SafeFileSystemWatcher.Configurations.FileSystemEventConfiguration.DuplicateEventDelayWindow">
             <summary>
-            Gets or sets <see cref="P:SafeFileSystemWatcher.Configurations.FileSystemEventCollectionConfiguration.DuplicateEventDelayWindow"/>, this
+            Gets or sets <see cref="P:SafeFileSystemWatcher.Configurations.FileSystemEventConfiguration.DuplicateEventDelayWindow"/>, this
             value represents the time to wait before posting and event from <see cref="T:System.IO.FileSystemWatcher"/>
             in order to verify it is not a duplicate event
             </summary>
         </member>
-        <member name="P:SafeFileSystemWatcher.Configurations.FileSystemEventCollectionConfiguration.DirectoryToMonitor">
+        <member name="P:SafeFileSystemWatcher.Configurations.FileSystemEventConfiguration.DirectoryToMonitor">
             <summary>
-            Gets or sets <see cref="P:SafeFileSystemWatcher.Configurations.FileSystemEventCollectionConfiguration.DirectoryToMonitor"/>, the directory to monitor for file changes
+            Gets or sets <see cref="P:SafeFileSystemWatcher.Configurations.FileSystemEventConfiguration.DirectoryToMonitor"/>, the directory to monitor for file changes
             </summary>
         </member>
-        <member name="P:SafeFileSystemWatcher.Configurations.FileSystemEventCollectionConfiguration.DirectoryFileFilter">
+        <member name="P:SafeFileSystemWatcher.Configurations.FileSystemEventConfiguration.DirectoryFileFilter">
             <summary>
-            Gets or sets <see cref="P:SafeFileSystemWatcher.Configurations.FileSystemEventCollectionConfiguration.DirectoryFileFilter"/>, the filter to use for monitoring file changes,
+            Gets or sets <see cref="P:SafeFileSystemWatcher.Configurations.FileSystemEventConfiguration.DirectoryFileFilter"/>, the filter to use for monitoring file changes,
             default value is "*", for all files
             </summary>
         </member>
-        <member name="T:SafeFileSystemWatcher.Configurations.IFileSystemEventCollectionConfigurationBuilder">
+        <member name="T:SafeFileSystemWatcher.Configurations.IFileSystemEventConfigurationBuilder">
             <summary>
             Builds a complete configuration for <see cref="T:SafeFileSystemWatcher.FileSystemEventCollection"/>
             </summary>
         </member>
-        <member name="M:SafeFileSystemWatcher.Configurations.IFileSystemEventCollectionConfigurationBuilder.Build(SafeFileSystemWatcher.Configurations.FileSystemEventCollectionConfiguration)">
+        <member name="M:SafeFileSystemWatcher.Configurations.IFileSystemEventConfigurationBuilder.Build(SafeFileSystemWatcher.Configurations.FileSystemEventConfiguration)">
             <summary>
             Build configuration for <see cref="T:SafeFileSystemWatcher.FileSystemEventCollection"/>
             </summary>
             <param name="configuration">Configuration to build against</param>
             <returns>Completed configuration</returns>
         </member>
-        <member name="T:SafeFileSystemWatcher.Configurations.IFileSystemEventCollectionConfigurationValidator">
+        <member name="T:SafeFileSystemWatcher.Configurations.IFileSystemEventConfigurationValidator">
             <summary>
-            Validation service for <see cref="T:SafeFileSystemWatcher.Configurations.FileSystemEventCollectionConfiguration"/>
+            Validation service for <see cref="T:SafeFileSystemWatcher.Configurations.FileSystemEventConfiguration"/>
             </summary>
         </member>
-        <member name="M:SafeFileSystemWatcher.Configurations.IFileSystemEventCollectionConfigurationValidator.TryValidate(SafeFileSystemWatcher.Configurations.FileSystemEventCollectionConfiguration)">
+        <member name="M:SafeFileSystemWatcher.Configurations.IFileSystemEventConfigurationValidator.TryValidate(SafeFileSystemWatcher.Configurations.FileSystemEventConfiguration)">
             <summary>
             Try and validate the given configuration
             </summary>
             <param name="configuration">Configuration to validate</param>
             <returns>Returns <c>true</c> if valid, <c>false</c> if not</returns>
         </member>
-        <member name="M:SafeFileSystemWatcher.Configurations.IFileSystemEventCollectionConfigurationValidator.Validate(SafeFileSystemWatcher.Configurations.FileSystemEventCollectionConfiguration)">
+        <member name="M:SafeFileSystemWatcher.Configurations.IFileSystemEventConfigurationValidator.Validate(SafeFileSystemWatcher.Configurations.FileSystemEventConfiguration)">
             <summary>
             Validate the given configuration
             </summary>
@@ -119,28 +119,34 @@
             Should be used on a background task as this will block while waiting for change events
             </summary>
         </member>
-        <member name="M:SafeFileSystemWatcher.FileSystemEventCollection.#ctor(SafeFileSystemWatcher.Configurations.IFileSystemEventCollectionConfigurationBuilder,SafeFileSystemWatcher.Configurations.FileSystemEventCollectionConfiguration,System.Threading.CancellationToken)">
+        <member name="M:SafeFileSystemWatcher.FileSystemEventCollection.#ctor(SafeFileSystemWatcher.Configurations.IFileSystemEventConfigurationBuilder,SafeFileSystemWatcher.Configurations.FileSystemEventConfiguration,System.Threading.CancellationToken,Microsoft.Extensions.Logging.ILogger{SafeFileSystemWatcher.FileSystemEventCollection})">
             <summary>
             Initializes a new instance of <see cref="T:SafeFileSystemWatcher.FileSystemEventCollection"/>
             </summary>
             <param name="configurationBuilder">Builder to use for configuration</param>
             <param name="configuration">Configuration to use</param>
             <param name="cancellationToken">Cancellation token to signal to watcher to stop</param>
+            <param name="logger">Logger to use</param>
         </member>
-        <member name="M:SafeFileSystemWatcher.FileSystemEventCollection.#ctor(SafeFileSystemWatcher.Configurations.FileSystemEventCollectionConfiguration,System.Threading.CancellationToken)">
+        <member name="M:SafeFileSystemWatcher.FileSystemEventCollection.#ctor(SafeFileSystemWatcher.Configurations.FileSystemEventConfiguration,System.Threading.CancellationToken,Microsoft.Extensions.Logging.ILogger{SafeFileSystemWatcher.FileSystemEventCollection})">
             <summary>
             Initializes a new instance of the <see cref="T:SafeFileSystemWatcher.FileSystemEventCollection"/>
             </summary>
             <param name="configuration">Configuration values for collection</param>
             <param name="cancellationToken">Cancellation token to signal to watcher to stop</param>
+            <param name="logger">Logger to use</param>
         </member>
-        <member name="M:SafeFileSystemWatcher.FileSystemEventCollection.#ctor(System.Threading.CancellationToken,System.String,System.String)">
+        <member name="M:SafeFileSystemWatcher.FileSystemEventCollection.#ctor(System.Threading.CancellationToken,System.String,System.String,Microsoft.Extensions.Logging.ILogger{SafeFileSystemWatcher.FileSystemEventCollection})">
             <summary>
             Initializes a new instance of the <see cref="T:SafeFileSystemWatcher.FileSystemEventCollection" />
             </summary>
             <param name="cancellationToken">Cancellation token to signal to watcher to stop</param>
             <param name="directory">Directory to monitor for events</param>
             <param name="filePattern">File pattern to monitor within directory</param>
+            <param name="logger">Logger to use</param>
+        </member>
+        <member name="M:SafeFileSystemWatcher.FileSystemEventCollection.Dispose">
+            <inheritdoc />
         </member>
         <member name="M:SafeFileSystemWatcher.FileSystemEventCollection.GetEnumerator">
             <inheritdoc />
@@ -158,15 +164,33 @@
             Background threadsafe watcher for <see cref="T:System.IO.FileSystemEventArgs"/>
             </summary>
         </member>
-        <member name="M:SafeFileSystemWatcher.Watcher.#ctor(System.Action{System.IO.FileSystemEventArgs},SafeFileSystemWatcher.Configurations.FileSystemEventCollectionConfiguration,System.Threading.CancellationToken)">
+        <member name="M:SafeFileSystemWatcher.Watcher.#ctor(System.Action{System.IO.FileSystemEventArgs},SafeFileSystemWatcher.Configurations.FileSystemEventConfiguration,System.Threading.CancellationToken,Microsoft.Extensions.Logging.ILogger{SafeFileSystemWatcher.Watcher})">
             <summary>
             Initializes a new instance of the <see cref="T:SafeFileSystemWatcher.Watcher"/> class.
             </summary>
             <param name="callback">Callback to execute on new file system event</param>
             <param name="configuration">Initial configuration object</param>
             <param name="cancellationToken">Cancellation token to signal to stop watching</param>
+            <param name="logger">Logger to use</param>
         </member>
-        <member name="M:SafeFileSystemWatcher.Watcher.#ctor(System.Action{System.IO.FileSystemEventArgs},SafeFileSystemWatcher.Configurations.IFileSystemEventCollectionConfigurationBuilder,SafeFileSystemWatcher.Configurations.FileSystemEventCollectionConfiguration,System.Threading.CancellationToken)">
+        <member name="M:SafeFileSystemWatcher.Watcher.#ctor(SafeFileSystemWatcher.Configurations.FileSystemEventConfiguration,System.Threading.CancellationToken,Microsoft.Extensions.Logging.ILogger{SafeFileSystemWatcher.Watcher})">
+            <summary>
+            Initializes a new instance of the <see cref="T:SafeFileSystemWatcher.Watcher"/> class.
+            </summary>
+            <param name="configuration">Initial configuration object</param>
+            <param name="cancellationToken">Cancellation token to signal to stop watching</param>
+            <param name="logger">Logger to use</param>
+        </member>
+        <member name="M:SafeFileSystemWatcher.Watcher.#ctor(SafeFileSystemWatcher.Configurations.IFileSystemEventConfigurationBuilder,SafeFileSystemWatcher.Configurations.FileSystemEventConfiguration,System.Threading.CancellationToken,Microsoft.Extensions.Logging.ILogger{SafeFileSystemWatcher.Watcher})">
+            <summary>
+            Initializes a new instance of the <see cref="T:SafeFileSystemWatcher.Watcher"/> class.
+            </summary>
+            <param name="configurationBuilder">Configuration builder to use</param>
+            <param name="configuration">Initial configuration object</param>
+            <param name="cancellationToken">Cancellation token to signal to stop watching</param>
+            <param name="logger">Logger to use</param>
+        </member>
+        <member name="M:SafeFileSystemWatcher.Watcher.#ctor(System.Action{System.IO.FileSystemEventArgs},SafeFileSystemWatcher.Configurations.IFileSystemEventConfigurationBuilder,SafeFileSystemWatcher.Configurations.FileSystemEventConfiguration,System.Threading.CancellationToken,Microsoft.Extensions.Logging.ILogger{SafeFileSystemWatcher.Watcher})">
             <summary>
             Initializes a new instance of the <see cref="T:SafeFileSystemWatcher.Watcher"/> class.
             </summary>
@@ -174,11 +198,19 @@
             <param name="configurationBuilder">Configuration builder to use</param>
             <param name="configuration">Initial configuration object</param>
             <param name="cancellationToken">Cancellation token to signal to stop watching</param>
+            <param name="logger">Logger to use</param>
         </member>
-        <member name="M:SafeFileSystemWatcher.Watcher.Watch">
+        <member name="M:SafeFileSystemWatcher.Watcher.Dispose">
+            <summary>
+            Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+            </summary>
+        </member>
+        <member name="M:SafeFileSystemWatcher.Watcher.Watch(System.Action{System.IO.FileSystemEventArgs})">
             <summary>
             Begin monitoring directory for file changes
             </summary>
+            <param name="callback">Callback to execute when file system event occurs</param>
+            <exception cref="T:System.InvalidOperationException">Thrown if no callbacks available to execute</exception>
         </member>
     </members>
 </doc>

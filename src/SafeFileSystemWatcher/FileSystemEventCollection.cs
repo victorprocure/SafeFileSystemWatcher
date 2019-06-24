@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Threading;
+using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Abstractions;
 using SafeFileSystemWatcher.Configurations;
 using SafeFileSystemWatcher.Internals;
 
@@ -14,10 +16,12 @@ namespace SafeFileSystemWatcher
     /// Collection of any file system events currently happening in a given directory,
     /// Should be used on a background task as this will block while waiting for change events
     /// </summary>
-    public sealed class FileSystemEventCollection : IEnumerable<FileSystemEventArgs>
+    public sealed class FileSystemEventCollection : IEnumerable<FileSystemEventArgs>, IDisposable
     {
+        internal readonly ManualResetEventSlim isInitializedEvent = new ManualResetEventSlim();
         private readonly CancellationToken _cancellationToken;
-        private readonly FileSystemEventCollectionConfiguration _configuration;
+        private readonly FileSystemEventConfiguration _configuration;
+        private readonly ILogger<FileSystemEventCollection> _logger;
 
         /// <summary>
         /// Initializes a new instance of <see cref="FileSystemEventCollection"/>
@@ -25,8 +29,9 @@ namespace SafeFileSystemWatcher
         /// <param name="configurationBuilder">Builder to use for configuration</param>
         /// <param name="configuration">Configuration to use</param>
         /// <param name="cancellationToken">Cancellation token to signal to watcher to stop</param>
-        public FileSystemEventCollection(IFileSystemEventCollectionConfigurationBuilder configurationBuilder,
-            FileSystemEventCollectionConfiguration configuration, CancellationToken cancellationToken)
+        /// <param name="logger">Logger to use</param>
+        public FileSystemEventCollection(IFileSystemEventConfigurationBuilder configurationBuilder,
+            FileSystemEventConfiguration configuration, CancellationToken cancellationToken, ILogger<FileSystemEventCollection> logger = null)
         {
             if (cancellationToken == default)
                 throw new ArgumentNullException(nameof(cancellationToken));
@@ -35,6 +40,11 @@ namespace SafeFileSystemWatcher
 
             _configuration = configurationBuilder.Build(configuration);
             _cancellationToken = cancellationToken;
+
+            if (logger is null)
+                logger = NullLogger<FileSystemEventCollection>.Instance;
+
+            _logger = logger;
         }
 
         /// <summary>
@@ -42,8 +52,10 @@ namespace SafeFileSystemWatcher
         /// </summary>
         /// <param name="configuration">Configuration values for collection</param>
         /// <param name="cancellationToken">Cancellation token to signal to watcher to stop</param>
-        public FileSystemEventCollection(FileSystemEventCollectionConfiguration configuration, CancellationToken cancellationToken)
-            : this(new DefaultFileSystemEventCollectionConfigurationBuilder(), configuration, cancellationToken)
+        /// <param name="logger">Logger to use</param>
+        public FileSystemEventCollection(FileSystemEventConfiguration configuration, CancellationToken cancellationToken,
+            ILogger<FileSystemEventCollection> logger = null)
+            : this(new DefaultFileSystemEventConfigurationBuilder(), configuration, cancellationToken, logger)
         {
         }
 
@@ -53,10 +65,19 @@ namespace SafeFileSystemWatcher
         /// <param name="cancellationToken">Cancellation token to signal to watcher to stop</param>
         /// <param name="directory">Directory to monitor for events</param>
         /// <param name="filePattern">File pattern to monitor within directory</param>
-        public FileSystemEventCollection(CancellationToken cancellationToken, string directory, string filePattern = null)
-            : this(new FileSystemEventCollectionConfiguration(directory, filePattern), cancellationToken)
+        /// <param name="logger">Logger to use</param>
+        public FileSystemEventCollection(CancellationToken cancellationToken, string directory, string filePattern = null,
+            ILogger<FileSystemEventCollection> logger = null)
+            : this(new FileSystemEventConfiguration(directory, filePattern), cancellationToken, logger)
 
         {
+        }
+
+        /// <inheritdoc />
+        public void Dispose()
+        {
+            isInitializedEvent?.Dispose();
+            GC.SuppressFinalize(this);
         }
 
         /// <inheritdoc />
@@ -73,10 +94,9 @@ namespace SafeFileSystemWatcher
             if (!_cancellationToken.IsCancellationRequested)
             {
                 using (var watcher = new FileSystemWatcher(_configuration.DirectoryToMonitor, _configuration.DirectoryFileFilter))
-                using (var queue = new FileSystemEventQueue(_configuration.DuplicateEventDelayWindow.TotalMilliseconds))
+                using (var queue = new FileSystemEventQueue(_configuration.DuplicateEventDelayWindow.TotalMilliseconds, _logger))
                 {
-                    QueueInitialFiles(queue);
-                    InitializeWatcher(queue, watcher);
+                    Initialize(queue, watcher);
 
                     if (!_cancellationToken.IsCancellationRequested)
                     {
@@ -86,13 +106,26 @@ namespace SafeFileSystemWatcher
                 }
             }
 
-            Trace.WriteLine("Cancellation has been requested");
+            _logger.CancellationRequested();
         }
 
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
 
-        private static void InitializeWatcher(FileSystemEventQueue queue, FileSystemWatcher watcher)
+        private void Initialize(FileSystemEventQueue queue, FileSystemWatcher watcher)
         {
+            var initializationTasks = new[]
+            {
+                Task.Run(() => InitializeWatcher(queue, watcher)),
+                Task.Run(() => QueueInitialFiles(queue))
+            };
+
+            Task.WaitAll(initializationTasks);
+            isInitializedEvent.Set();
+        }
+
+        private void InitializeWatcher(FileSystemEventQueue queue, FileSystemWatcher watcher)
+        {
+            _logger.Initializing<FileSystemEventCollection>();
             watcher.NotifyFilter = NotifyFilters.FileName
                         | NotifyFilters.CreationTime
                         | NotifyFilters.LastWrite;
@@ -107,6 +140,7 @@ namespace SafeFileSystemWatcher
 
         private void QueueInitialFiles(FileSystemEventQueue queue)
         {
+            _logger.QueuingInitialFiles();
             foreach (var file in Directory.GetFiles(_configuration.DirectoryToMonitor, _configuration.DirectoryFileFilter, SearchOption.TopDirectoryOnly))
             {
                 queue.Enqueue(new FileSystemEventArgs(WatcherChangeTypes.All, _configuration.DirectoryToMonitor, Path.GetFileName(file)));
