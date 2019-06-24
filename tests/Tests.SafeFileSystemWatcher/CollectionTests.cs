@@ -18,8 +18,7 @@ namespace Tests.SafeFileSystemWatcher
             var changeList = new List<string>();
             using (var cts = new CancellationTokenSource())
             {
-                cts.CancelAfter(TimeSpan.FromSeconds(5));
-                await RunWatcherAsync(f => changeList.Add(f.FullPath), cts.Token).ConfigureAwait(false);
+                new Thread(() => RunWatcher(f => changeList.Add(f.FullPath), cts.Token)).Start();
                 var tempFile = CreateTempFile();
                 await Task.Delay(2000).ConfigureAwait(false);
                 TryDeleteFile(tempFile);
@@ -36,7 +35,7 @@ namespace Tests.SafeFileSystemWatcher
 
             using (var cts = new CancellationTokenSource())
             {
-                await RunWatcherAsync(f => changeList.Add(f.FullPath), cts.Token).ConfigureAwait(false);
+                new Thread(() => RunWatcher(f => changeList.Add(f.FullPath), cts.Token)).Start();
                 await Task.Delay(2000).ConfigureAwait(false);
                 TryDeleteFile(tempFile);
                 cts.Cancel();
@@ -65,19 +64,14 @@ namespace Tests.SafeFileSystemWatcher
             }
         }
 
-        private Task RunWatcherAsync(Action<FileSystemEventArgs> processAction, CancellationToken cancellationToken)
+        private void RunWatcher(Action<FileSystemEventArgs> processAction, CancellationToken cancellationToken)
         {
             var watcher = new FileSystemEventCollection(cancellationToken, Path.GetTempPath(), $"*.{_tempFileExtension}").GetEnumerator();
 
-            Task.Run(() =>
+            while (watcher.MoveNext())
             {
-                while (watcher.MoveNext())
-                {
-                    processAction(watcher.Current);
-                }
-            });
-
-            return Task.CompletedTask;
+                processAction(watcher.Current);
+            }
         }
     }
 }
