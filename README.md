@@ -16,7 +16,7 @@ internal static class Program
             using (var cancel = new CancellationTokenSource())
             using (var watcher = new Watcher(InternalChanger, config, cts.Token))
             {
-                watcher.Watch();    
+                watcher.Watch();
 
                 Console.ReadLine();
                 cancel.Cancel();

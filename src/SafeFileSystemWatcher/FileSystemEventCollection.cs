@@ -26,37 +26,20 @@ namespace SafeFileSystemWatcher
         /// <summary>
         /// Initializes a new instance of <see cref="FileSystemEventCollection"/>
         /// </summary>
-        /// <param name="configurationBuilder"> Builder to use for configuration </param>
         /// <param name="configuration">        Configuration to use </param>
         /// <param name="cancellationToken">    Cancellation token to signal to watcher to stop </param>
         /// <param name="logger">               Logger to use </param>
-        public FileSystemEventCollection(IFileSystemEventConfigurationBuilder configurationBuilder,
-            FileSystemEventConfiguration configuration, CancellationToken cancellationToken, ILogger<FileSystemEventCollection> logger = null)
+        public FileSystemEventCollection(FileSystemEventConfiguration configuration, CancellationToken cancellationToken,
+            ILogger<FileSystemEventCollection> logger = null)
         {
             if (cancellationToken == default)
                 throw new ArgumentNullException(nameof(cancellationToken));
             if (configuration is null)
                 throw new ArgumentNullException(nameof(configuration));
 
-            _configuration = configurationBuilder.Build(configuration);
+            _configuration = configuration;
             _cancellationToken = cancellationToken;
-
-            if (logger is null)
-                logger = NullLogger<FileSystemEventCollection>.Instance;
-
-            _logger = logger;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="FileSystemEventCollection"/>
-        /// </summary>
-        /// <param name="configuration">     Configuration values for collection </param>
-        /// <param name="cancellationToken"> Cancellation token to signal to watcher to stop </param>
-        /// <param name="logger">            Logger to use </param>
-        public FileSystemEventCollection(FileSystemEventConfiguration configuration, CancellationToken cancellationToken,
-            ILogger<FileSystemEventCollection> logger = null)
-            : this(new DefaultFileSystemEventConfigurationBuilder(), configuration, cancellationToken, logger)
-        {
+            _logger = logger ?? NullLogger<FileSystemEventCollection>.Instance;
         }
 
         /// <summary>
@@ -85,7 +68,7 @@ namespace SafeFileSystemWatcher
         /// Iterates over the collection of <see cref="FileSystemEventArgs"/> awaiting any new ones.
         /// This is long running and will block while waiting for the next file system event
         /// </summary>
-        /// <remarks> 
+        /// <remarks>
         /// On initial creation of collection will create an event for all files currently in
         /// monitored directory.
         /// </remarks>
