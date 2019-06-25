@@ -44,4 +44,4 @@ after_build:
           }
 
 test_script:
-  - cmd: dotnet test
+  - cmd: dotnet test SafeFileSystemWatcher.sln
