@@ -44,6 +44,4 @@ after_build:
           }
 
 test_script:
-  - cmd: dotnet restore tests/Tests.SafeFileSystemWatcher/Tests.SafeFileSystemWatcher.csproj --verbosity m
-  - cmd: cd tests
-  - cmd: dotnet xunit
+  - cmd: dotnet test
