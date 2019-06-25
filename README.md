@@ -1,5 +1,7 @@
 # Thread Safe File System Watcher
 
+[![Build status](https://ci.appveyor.com/api/projects/status/u75h99fbktsdhq49?svg=true)](https://ci.appveyor.com/project/victorprocure/safefilesystemwatcher)
+
 This is a thread safe implementation of the file system watcher as an enumerable collection of fired events.
 
 ## Example
