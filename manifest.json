@@ -1,0 +1,212 @@
+{
+  "homepages": [],
+  "source_base_path": "D:/Development/SafeFileSystemWatcher",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Conceptual",
+      "source_relative_path": "README.md",
+      "output": {
+        ".html": {
+          "relative_path": "README.html",
+          "hash": "eBlcrDU2hTPvUuMtcymUUA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/getting_started.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/getting_started.html",
+          "hash": "woEzW75k9qbF/BVRAmCsng=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "articles/toc.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/toc.html",
+          "hash": "KSfwNQ64KCnQobOet9mTDA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html",
+          "hash": "lXcGLKU0oHeeoaWg3c4dYA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SafeFileSystemWatcher.Configurations.FileSystemEventConfiguration.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SafeFileSystemWatcher.Configurations.FileSystemEventConfiguration.html",
+          "hash": "DTftOrrCLcq4wB9tUvEmNw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SafeFileSystemWatcher.Configurations.IFileSystemEventConfigurationBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SafeFileSystemWatcher.Configurations.IFileSystemEventConfigurationBuilder.html",
+          "hash": "x+YiH3s76hizfAGaenth/w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SafeFileSystemWatcher.Configurations.IFileSystemEventConfigurationValidator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SafeFileSystemWatcher.Configurations.IFileSystemEventConfigurationValidator.html",
+          "hash": "kEmT4iKzlPhj1WqsASorgA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SafeFileSystemWatcher.Configurations.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SafeFileSystemWatcher.Configurations.html",
+          "hash": "YiA/T0VaUp7a7TTgCnhZ9g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SafeFileSystemWatcher.FileSystemEventCollection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SafeFileSystemWatcher.FileSystemEventCollection.html",
+          "hash": "mLUmBm080EadYRfBSNT5gg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SafeFileSystemWatcher.Watcher.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SafeFileSystemWatcher.Watcher.html",
+          "hash": "94mWKXmAkGtUhnYmXOzOtQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SafeFileSystemWatcher.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SafeFileSystemWatcher.html",
+          "hash": "Ie4IU+odwi/7Hc+IduRbBQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "obj/api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html",
+          "hash": "wV9b6djab9V5gv7gK7K1+g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html",
+          "hash": "IrJBgQS1wYZl0pBQd+ifYg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    }
+  ],
+  "incremental_info": [
+    {
+      "status": {
+        "can_incremental": false,
+        "details": "Cannot build incrementally because docfx version changed from 2.43.1.0 to 2.43.2.0.",
+        "incrementalPhase": "build",
+        "total_file_count": 0,
+        "skipped_file_count": 0,
+        "full_build_reason_code": "DocfxVersionChanged"
+      },
+      "processors": {
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
+          "skipped_file_count": 0
+        },
+        "ConceptualDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 3,
+          "skipped_file_count": 0
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 7,
+          "skipped_file_count": 0
+        }
+      }
+    },
+    {
+      "status": {
+        "can_incremental": true,
+        "details": "Can support incremental post processing.",
+        "incrementalPhase": "postProcessing",
+        "total_file_count": 0,
+        "skipped_file_count": 0
+      },
+      "processors": {}
+    }
+  ],
+  "version_info": {},
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}
