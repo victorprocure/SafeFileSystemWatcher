@@ -9,7 +9,7 @@
           "src": "D:\\Development\\SafeFileSystemWatcher\\src\\SafeFileSystemWatcher"
         }
       ],
-      "dest": "api",
+      "dest": "obj/api",
       "disableGitFeatures": false,
       "disableDefaultFilter": false
     }
@@ -17,10 +17,9 @@
   "build": {
     "content": [
       {
-        "files": [
-          "api/**.yml",
-          "api/index.md"
-        ]
+        "files": [ "**/*.yml" ],
+        "src": "obj/api",
+        "dest": "api"
       },
       {
         "files": [
@@ -34,7 +33,7 @@
     "resource": [
       {
         "files": [
-          "images/**"
+          "articles/images/**"
         ]
       }
     ],
@@ -57,6 +56,7 @@
     ],
     "postProcessors": [],
     "markdownEngineName": "markdig",
+    "xrefService": [ "https://xref.docs.microsoft.com/query?uid={uid}" ],
     "noLangKeyword": false,
     "keepFileLink": false,
     "cleanupCacheHistory": false,
