@@ -4,9 +4,10 @@
       "src": [
         {
           "files": [
-            "**/*.sln",
-            "src/SafeFileSystemWatcher/*.csproj"
+            "../**/*.sln",
+            "SafeFileSystemWatcher/*.csproj"
           ],
+          "exclude": [ "**/bin/**", "**obj/**" ],
           "src": "src"
         }
       ],
