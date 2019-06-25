@@ -26,10 +26,12 @@ namespace SafeFileSystemWatcher
         /// <summary>
         /// Initializes a new instance of the <see cref="Watcher"/> class.
         /// </summary>
-        /// <param name="callback">Callback to execute on new file system event</param>
-        /// <param name="configuration">Initial configuration object</param>
-        /// <param name="cancellationToken">Cancellation token to signal to stop watching</param>
-        /// <param name="logger">Logger to use</param>
+        /// <param name="callback">          
+        /// Callback to execute on new file system event
+        /// </param>
+        /// <param name="configuration">     Initial configuration object </param>
+        /// <param name="cancellationToken"> Cancellation token to signal to stop watching </param>
+        /// <param name="logger">            Logger to use </param>
         public Watcher(Action<FileSystemEventArgs> callback, FileSystemEventConfiguration configuration,
             CancellationToken cancellationToken, ILogger<Watcher> logger = null)
             : this(callback, new DefaultFileSystemEventConfigurationBuilder(), configuration, cancellationToken, logger)
@@ -39,9 +41,9 @@ namespace SafeFileSystemWatcher
         /// <summary>
         /// Initializes a new instance of the <see cref="Watcher"/> class.
         /// </summary>
-        /// <param name="configuration">Initial configuration object</param>
-        /// <param name="cancellationToken">Cancellation token to signal to stop watching</param>
-        /// <param name="logger">Logger to use</param>
+        /// <param name="configuration">     Initial configuration object </param>
+        /// <param name="cancellationToken"> Cancellation token to signal to stop watching </param>
+        /// <param name="logger">            Logger to use </param>
         public Watcher(FileSystemEventConfiguration configuration, CancellationToken cancellationToken, ILogger<Watcher> logger = null)
             : this(null, new DefaultFileSystemEventConfigurationBuilder(), configuration, cancellationToken, logger)
         {
@@ -50,10 +52,10 @@ namespace SafeFileSystemWatcher
         /// <summary>
         /// Initializes a new instance of the <see cref="Watcher"/> class.
         /// </summary>
-        /// <param name="configurationBuilder">Configuration builder to use</param>
-        /// <param name="configuration">Initial configuration object</param>
-        /// <param name="cancellationToken">Cancellation token to signal to stop watching</param>
-        /// <param name="logger">Logger to use</param>
+        /// <param name="configurationBuilder"> Configuration builder to use </param>
+        /// <param name="configuration">        Initial configuration object </param>
+        /// <param name="cancellationToken">    Cancellation token to signal to stop watching </param>
+        /// <param name="logger">               Logger to use </param>
         public Watcher(IFileSystemEventConfigurationBuilder configurationBuilder,
             FileSystemEventConfiguration configuration, CancellationToken cancellationToken, ILogger<Watcher> logger = null)
             : this(null, configurationBuilder, configuration, cancellationToken, logger)
@@ -63,11 +65,13 @@ namespace SafeFileSystemWatcher
         /// <summary>
         /// Initializes a new instance of the <see cref="Watcher"/> class.
         /// </summary>
-        /// <param name="callback">Callback to execute on new file system event</param>
-        /// <param name="configurationBuilder">Configuration builder to use</param>
-        /// <param name="configuration">Initial configuration object</param>
-        /// <param name="cancellationToken">Cancellation token to signal to stop watching</param>
-        /// <param name="logger">Logger to use</param>
+        /// <param name="callback">             
+        /// Callback to execute on new file system event
+        /// </param>
+        /// <param name="configurationBuilder"> Configuration builder to use </param>
+        /// <param name="configuration">        Initial configuration object </param>
+        /// <param name="cancellationToken">    Cancellation token to signal to stop watching </param>
+        /// <param name="logger">               Logger to use </param>
         public Watcher(Action<FileSystemEventArgs> callback, IFileSystemEventConfigurationBuilder configurationBuilder,
             FileSystemEventConfiguration configuration, CancellationToken cancellationToken, ILogger<Watcher> logger = null)
         {
@@ -86,7 +90,23 @@ namespace SafeFileSystemWatcher
         }
 
         /// <summary>
-        /// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+        /// Add callback to current callback chain
+        /// </summary>
+        /// <param name="callback"> Callback to add to chain </param>
+        public void AddCallback(Action<FileSystemEventArgs> callback)
+        {
+            if (callback is null)
+                throw new ArgumentNullException(nameof(callback));
+
+            lock (_syncRoot)
+            {
+                _callback += callback;
+            }
+        }
+
+        /// <summary>
+        /// Performs application-defined tasks associated with freeing, releasing, or resetting
+        /// unmanaged resources.
         /// </summary>
         public void Dispose()
         {
@@ -97,10 +117,27 @@ namespace SafeFileSystemWatcher
         }
 
         /// <summary>
+        /// Remove callback from current callback chain
+        /// </summary>
+        /// <param name="callback"> Callback to remove from chain </param>
+        public void RemoveCallback(Action<FileSystemEventArgs> callback)
+        {
+            if (callback is null)
+                throw new ArgumentNullException(nameof(callback));
+
+            lock (_syncRoot)
+            {
+                _callback -= callback;
+            }
+        }
+
+        /// <summary>
         /// Begin monitoring directory for file changes
         /// </summary>
-        /// <param name="callback">Callback to execute when file system event occurs</param>
-        /// <exception cref="InvalidOperationException">Thrown if no callbacks available to execute</exception>
+        /// <param name="callback"> Callback to execute when file system event occurs </param>
+        /// <exception cref="InvalidOperationException"> 
+        /// Thrown if no callbacks available to execute
+        /// </exception>
         public void Watch(Action<FileSystemEventArgs> callback = null)
         {
             if (_callback is null && callback is null)
@@ -122,6 +159,7 @@ namespace SafeFileSystemWatcher
         private void Initialize()
         {
             _logger.Initializing<Watcher>(_callback is null ? "with no default callback" : "with default callback");
+
             lock (_syncRoot)
             {
                 _internalThread = new Thread(StartCollectionWatcher);
@@ -134,7 +172,7 @@ namespace SafeFileSystemWatcher
 
             Task.Run(() =>
             {
-                _collection.isInitializedEvent.Wait();
+                _collection._isInitializedEvent.Wait();
                 _intializedEvent.Set();
             });
 

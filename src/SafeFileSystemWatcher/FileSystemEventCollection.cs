@@ -11,14 +11,14 @@ using SafeFileSystemWatcher.Internals;
 
 namespace SafeFileSystemWatcher
 {
-    /// <inheritdoc />
+    /// <inheritdoc/>
     /// <summary>
-    /// Collection of any file system events currently happening in a given directory,
-    /// Should be used on a background task as this will block while waiting for change events
+    /// Collection of any file system events currently happening in a given directory, Should be used
+    /// on a background task as this will block while waiting for change events
     /// </summary>
     public sealed class FileSystemEventCollection : IEnumerable<FileSystemEventArgs>, IDisposable
     {
-        internal readonly ManualResetEventSlim isInitializedEvent = new ManualResetEventSlim();
+        internal readonly ManualResetEventSlim _isInitializedEvent = new ManualResetEventSlim();
         private readonly CancellationToken _cancellationToken;
         private readonly FileSystemEventConfiguration _configuration;
         private readonly ILogger<FileSystemEventCollection> _logger;
@@ -26,10 +26,10 @@ namespace SafeFileSystemWatcher
         /// <summary>
         /// Initializes a new instance of <see cref="FileSystemEventCollection"/>
         /// </summary>
-        /// <param name="configurationBuilder">Builder to use for configuration</param>
-        /// <param name="configuration">Configuration to use</param>
-        /// <param name="cancellationToken">Cancellation token to signal to watcher to stop</param>
-        /// <param name="logger">Logger to use</param>
+        /// <param name="configurationBuilder"> Builder to use for configuration </param>
+        /// <param name="configuration">        Configuration to use </param>
+        /// <param name="cancellationToken">    Cancellation token to signal to watcher to stop </param>
+        /// <param name="logger">               Logger to use </param>
         public FileSystemEventCollection(IFileSystemEventConfigurationBuilder configurationBuilder,
             FileSystemEventConfiguration configuration, CancellationToken cancellationToken, ILogger<FileSystemEventCollection> logger = null)
         {
@@ -50,9 +50,9 @@ namespace SafeFileSystemWatcher
         /// <summary>
         /// Initializes a new instance of the <see cref="FileSystemEventCollection"/>
         /// </summary>
-        /// <param name="configuration">Configuration values for collection</param>
-        /// <param name="cancellationToken">Cancellation token to signal to watcher to stop</param>
-        /// <param name="logger">Logger to use</param>
+        /// <param name="configuration">     Configuration values for collection </param>
+        /// <param name="cancellationToken"> Cancellation token to signal to watcher to stop </param>
+        /// <param name="logger">            Logger to use </param>
         public FileSystemEventCollection(FileSystemEventConfiguration configuration, CancellationToken cancellationToken,
             ILogger<FileSystemEventCollection> logger = null)
             : this(new DefaultFileSystemEventConfigurationBuilder(), configuration, cancellationToken, logger)
@@ -60,12 +60,12 @@ namespace SafeFileSystemWatcher
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="FileSystemEventCollection" />
+        /// Initializes a new instance of the <see cref="FileSystemEventCollection"/>
         /// </summary>
-        /// <param name="cancellationToken">Cancellation token to signal to watcher to stop</param>
-        /// <param name="directory">Directory to monitor for events</param>
-        /// <param name="filePattern">File pattern to monitor within directory</param>
-        /// <param name="logger">Logger to use</param>
+        /// <param name="cancellationToken"> Cancellation token to signal to watcher to stop </param>
+        /// <param name="directory">         Directory to monitor for events </param>
+        /// <param name="filePattern">       File pattern to monitor within directory </param>
+        /// <param name="logger">            Logger to use </param>
         public FileSystemEventCollection(CancellationToken cancellationToken, string directory, string filePattern = null,
             ILogger<FileSystemEventCollection> logger = null)
             : this(new FileSystemEventConfiguration(directory, filePattern), cancellationToken, logger)
@@ -73,22 +73,23 @@ namespace SafeFileSystemWatcher
         {
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         public void Dispose()
         {
-            isInitializedEvent?.Dispose();
+            _isInitializedEvent?.Dispose();
             GC.SuppressFinalize(this);
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
-        /// Iterates over the collection of <see cref="FileSystemEventArgs" /> awaiting any new ones.
+        /// Iterates over the collection of <see cref="FileSystemEventArgs"/> awaiting any new ones.
         /// This is long running and will block while waiting for the next file system event
         /// </summary>
-        /// <remarks>
-        /// On initial creation of collection will create an event for all files currently in monitored directory.
+        /// <remarks> 
+        /// On initial creation of collection will create an event for all files currently in
+        /// monitored directory.
         /// </remarks>
-        /// <returns>Non duplicate <see cref="FileSystemEventArgs"/></returns>
+        /// <returns> Non duplicate <see cref="FileSystemEventArgs"/> </returns>
         public IEnumerator<FileSystemEventArgs> GetEnumerator()
         {
             if (!_cancellationToken.IsCancellationRequested)
@@ -120,7 +121,7 @@ namespace SafeFileSystemWatcher
             };
 
             Task.WaitAll(initializationTasks);
-            isInitializedEvent.Set();
+            _isInitializedEvent.Set();
         }
 
         private void InitializeWatcher(FileSystemEventQueue queue, FileSystemWatcher watcher)
