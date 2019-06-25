@@ -9,7 +9,7 @@
       "output": {
         ".html": {
           "relative_path": "README.html",
-          "hash": "dfS3uxsJTQYbThtHc/aJRw=="
+          "hash": "3PZwGRRtHjsdK0ASDT9hkg=="
         }
       },
       "is_incremental": false,
@@ -65,35 +65,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/api/SafeFileSystemWatcher.Configurations.IFileSystemEventConfigurationBuilder.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/SafeFileSystemWatcher.Configurations.IFileSystemEventConfigurationBuilder.html",
-          "hash": "x+YiH3s76hizfAGaenth/w=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/api/SafeFileSystemWatcher.Configurations.IFileSystemEventConfigurationValidator.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/SafeFileSystemWatcher.Configurations.IFileSystemEventConfigurationValidator.html",
-          "hash": "kEmT4iKzlPhj1WqsASorgA=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "obj/api/SafeFileSystemWatcher.Configurations.yml",
       "output": {
         ".html": {
           "relative_path": "api/SafeFileSystemWatcher.Configurations.html",
-          "hash": "YiA/T0VaUp7a7TTgCnhZ9g=="
+          "hash": "YohwDMjO9824IDlxVOjcwA=="
         }
       },
       "is_incremental": false,
@@ -105,7 +81,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SafeFileSystemWatcher.FileSystemEventCollection.html",
-          "hash": "mLUmBm080EadYRfBSNT5gg=="
+          "hash": "2ecGvrt0Ie5rooO0ddkAEA=="
         }
       },
       "is_incremental": false,
@@ -117,7 +93,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SafeFileSystemWatcher.Watcher.html",
-          "hash": "94mWKXmAkGtUhnYmXOzOtQ=="
+          "hash": "9WProgAx2rMUgUMbotdgsQ=="
         }
       },
       "is_incremental": false,
@@ -141,7 +117,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "wV9b6djab9V5gv7gK7K1+g=="
+          "hash": "kaN2JnrYu/EOXyH5fvjnLw=="
         }
       },
       "is_incremental": false,
@@ -171,6 +147,13 @@
         "full_build_reason_code": "NoAvailableBuildCache"
       },
       "processors": {
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
+          "skipped_file_count": 0
+        },
         "ConceptualDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
@@ -180,14 +163,7 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 7,
-          "skipped_file_count": 0
-        },
-        "TocDocumentProcessor": {
-          "can_incremental": false,
-          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
-          "incrementalPhase": "build",
-          "total_file_count": 0,
+          "total_file_count": 5,
           "skipped_file_count": 0
         }
       }
