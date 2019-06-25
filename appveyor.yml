@@ -2,7 +2,7 @@ environment:
     op_build_user: "Victor Procure"
     op_build_user_email: "victor@victorprocure.co"
     access_token:
-        secure: 171ceed961fdc89ac9c9e97546bfed2341f4f6d3
+        secure: iFKKHrEHPTQg2pOcgKXmiL7Hc+2lBGHHCIXM3l1PNEz4ynMdtr9CESsYfCZsY8/S
 
 image: Visual Studio 2019
 init:
