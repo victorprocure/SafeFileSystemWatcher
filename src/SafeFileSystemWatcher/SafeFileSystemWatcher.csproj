@@ -20,6 +20,6 @@
   </ItemGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>C:\Development\SafeFileSystemWatcher\src\SafeFileSystemWatcher\SafeFileSystemWatcher.xml</DocumentationFile>
+    <DocumentationFile></DocumentationFile>
   </PropertyGroup>
 </Project>
