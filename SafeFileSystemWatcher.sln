@@ -13,6 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests.SafeFileSystemWatcher
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{23F6095C-254F-47F1-9618-A2898C479EA5}"
 	ProjectSection(SolutionItems) = preProject
+		.bettercodehub.yml = .bettercodehub.yml
 		.editorconfig = .editorconfig
 		.gitignore = .gitignore
 		src\SafeFileSystemWatcher\docfx.json = src\SafeFileSystemWatcher\docfx.json
