@@ -4,14 +4,13 @@
       "src": [
         {
           "files": [
-            "**.csproj"
+            "**/*.sln",
+            "src/SafeFileSystemWatcher/*.csproj"
           ],
-          "src": "D:\\Development\\SafeFileSystemWatcher\\src\\SafeFileSystemWatcher"
+          "src": "src"
         }
       ],
-      "dest": "obj/api",
-      "disableGitFeatures": false,
-      "disableDefaultFilter": false
+      "dest": "obj/api"
     }
   ],
   "build": {
@@ -23,10 +22,10 @@
       },
       {
         "files": [
-          "articles/**.md",
+          "articles/**/*.md",
+          "*.md",
           "articles/**/toc.yml",
-          "toc.yml",
-          "*.md"
+          "toc.yml"
         ]
       }
     ],
