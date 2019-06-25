@@ -357,5 +357,5 @@ MigrationBackup/
 /**/bin/
 /**/obj/
 _site
-log.txt
+**/log.txt
 origin_site/
