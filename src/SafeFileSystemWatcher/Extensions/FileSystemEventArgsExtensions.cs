@@ -1,6 +1,7 @@
 ﻿using System.IO;
+using SafeFileSystemWatcher.Collections;
 
-namespace SafeFileSystemWatcher.Internals
+namespace SafeFileSystemWatcher.Extensions
 {
     internal static class FileSystemEventArgsExtensions
     {

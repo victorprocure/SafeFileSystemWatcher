@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Threading;
-using SafeFileSystemWatcher;
 using SafeFileSystemWatcher.Configurations;
+using SafeFileSystemWatcher.IO;
 using Xunit;
 
 namespace Tests.SafeFileSystemWatcher

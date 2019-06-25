@@ -4,10 +4,11 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Abstractions;
+using SafeFileSystemWatcher.Collections;
 using SafeFileSystemWatcher.Configurations;
-using SafeFileSystemWatcher.Internals;
+using SafeFileSystemWatcher.Extensions;
 
-namespace SafeFileSystemWatcher
+namespace SafeFileSystemWatcher.IO
 {
     /// <summary>
     /// Background threadsafe watcher for <see cref="FileSystemEventArgs"/>

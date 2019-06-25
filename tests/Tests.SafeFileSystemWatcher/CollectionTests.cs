@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
-using SafeFileSystemWatcher;
+using SafeFileSystemWatcher.Collections;
 using Xunit;
 
 namespace Tests.SafeFileSystemWatcher

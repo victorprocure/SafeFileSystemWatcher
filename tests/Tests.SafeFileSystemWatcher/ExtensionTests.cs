@@ -1,5 +1,5 @@
 ﻿using System.IO;
-using SafeFileSystemWatcher.Internals;
+using SafeFileSystemWatcher.Extensions;
 using Xunit;
 
 namespace Tests.SafeFileSystemWatcher

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading;
 using System.Timers;
 using Microsoft.Extensions.Logging;
+using SafeFileSystemWatcher.Extensions;
 using Timer = System.Timers.Timer;
 
 namespace SafeFileSystemWatcher.Internals

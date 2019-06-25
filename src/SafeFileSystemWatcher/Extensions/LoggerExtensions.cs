@@ -2,7 +2,7 @@
 using System.IO;
 using Microsoft.Extensions.Logging;
 
-namespace SafeFileSystemWatcher.Internals
+namespace SafeFileSystemWatcher.Extensions
 {
     internal static class LoggerExtensions
     {
