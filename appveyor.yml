@@ -2,7 +2,7 @@ environment:
     op_build_user: "OpenPublishBuild"
     op_build_user_email: "victor@victorprocure.co"
     access_token:
-        secure: t74btP1uJUIXa65tTiQGWAZvYmJSNjSruJV90exd++sAjrKpo7f6e4LGJJLGIKb3
+        secure: 2d7794f49ac54c21eed1fbfafbc9f23ed9c38bcc4006fb16b358985c7e279396
 
 image: Visual Studio 2019
 before_build:
