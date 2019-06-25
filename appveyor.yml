@@ -5,12 +5,18 @@ environment:
         secure: 2d7794f49ac54c21eed1fbfafbc9f23ed9c38bcc4006fb16b358985c7e279396
 
 image: Visual Studio 2019
+init:
+  # Good practise, because Windows line endings are different from Unix/Linux ones
+- cmd: git config --global core.autocrlf true
+
 before_build:
     - ps: |
           if(-Not $env:APPVEYOR_PULL_REQUEST_TITLE)
           {
-              git checkout $env:APPVEYOR_REPO_BRANCH
+              git checkout $env:APPVEYOR_REPO_BRANCH -q
               choco install docfx -y
+              dotnet --version
+              dotnet restore SafeFileSystemWatcher.sln --verbosity m
           }
 
 build_script:
@@ -37,3 +43,8 @@ after_build:
               git commit -m "CI Updates" -q
               git push origin gh-pages -q
           }
+
+test_script:
+  - cmd: dotnet restore tests/Tests.SafeFileSystemWatcher/Tests.SafeFileSystemWatcher.csproj --verbosity m
+  - cmd: cd tests
+- cmd: dotnet xunit
