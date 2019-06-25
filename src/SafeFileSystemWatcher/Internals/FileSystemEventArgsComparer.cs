@@ -26,8 +26,7 @@ namespace SafeFileSystemWatcher.Internals
         private static bool IsEqualRenamedEvent(FileSystemEventArgs event1, FileSystemEventArgs event2)
             => !(event1 is RenamedEventArgs renamedEvent1 && event2 is RenamedEventArgs renamedEvent2)
                 || (renamedEvent1.OldFullPath == renamedEvent2.OldFullPath
-                   && renamedEvent1.OldName == renamedEvent2.OldName)
-;
+                   && renamedEvent1.OldName == renamedEvent2.OldName);
 
         private static bool IsNameAndEventEqual(FileSystemEventArgs event1, FileSystemEventArgs event2)
             => (event1.ChangeType & event2.ChangeType) != 0 && AreFileSystemEventArgsFilePathsEqual(event1, event2);
