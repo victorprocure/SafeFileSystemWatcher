@@ -44,4 +44,6 @@ after_build:
           }
 
 test_script:
+  - cmd: git checkout $env:APPVEYOR_REPO_BRANCH -q
+  - cmd: dotnet restore SafeFileSystemWatcher.sln --verbosity m
   - cmd: dotnet test SafeFileSystemWatcher.sln
