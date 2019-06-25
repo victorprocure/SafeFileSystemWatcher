@@ -1,12 +1,86 @@
 ### YamlMime:XRefMap
 sorted: true
 references:
-- uid: SafeFileSystemWatcher
-  name: SafeFileSystemWatcher
-  href: api/SafeFileSystemWatcher.html
-  commentId: N:SafeFileSystemWatcher
-  fullName: SafeFileSystemWatcher
-  nameWithType: SafeFileSystemWatcher
+- uid: SafeFileSystemWatcher.Collections
+  name: SafeFileSystemWatcher.Collections
+  href: api/SafeFileSystemWatcher.Collections.html
+  commentId: N:SafeFileSystemWatcher.Collections
+  fullName: SafeFileSystemWatcher.Collections
+  nameWithType: SafeFileSystemWatcher.Collections
+- uid: SafeFileSystemWatcher.Collections.FileSystemEventCollection
+  name: FileSystemEventCollection
+  href: api/SafeFileSystemWatcher.Collections.FileSystemEventCollection.html
+  commentId: T:SafeFileSystemWatcher.Collections.FileSystemEventCollection
+  fullName: SafeFileSystemWatcher.Collections.FileSystemEventCollection
+  nameWithType: FileSystemEventCollection
+- uid: SafeFileSystemWatcher.Collections.FileSystemEventCollection.#ctor(SafeFileSystemWatcher.Configurations.FileSystemEventConfiguration,System.Threading.CancellationToken,Microsoft.Extensions.Logging.ILogger{SafeFileSystemWatcher.Collections.FileSystemEventCollection})
+  name: FileSystemEventCollection(FileSystemEventConfiguration, CancellationToken, ILogger<FileSystemEventCollection>)
+  href: api/SafeFileSystemWatcher.Collections.FileSystemEventCollection.html#SafeFileSystemWatcher_Collections_FileSystemEventCollection__ctor_SafeFileSystemWatcher_Configurations_FileSystemEventConfiguration_System_Threading_CancellationToken_Microsoft_Extensions_Logging_ILogger_SafeFileSystemWatcher_Collections_FileSystemEventCollection__
+  commentId: M:SafeFileSystemWatcher.Collections.FileSystemEventCollection.#ctor(SafeFileSystemWatcher.Configurations.FileSystemEventConfiguration,System.Threading.CancellationToken,Microsoft.Extensions.Logging.ILogger{SafeFileSystemWatcher.Collections.FileSystemEventCollection})
+  name.vb: FileSystemEventCollection(FileSystemEventConfiguration, CancellationToken, ILogger(Of FileSystemEventCollection))
+  fullName: SafeFileSystemWatcher.Collections.FileSystemEventCollection.FileSystemEventCollection(SafeFileSystemWatcher.Configurations.FileSystemEventConfiguration, System.Threading.CancellationToken, Microsoft.Extensions.Logging.ILogger<SafeFileSystemWatcher.Collections.FileSystemEventCollection>)
+  fullName.vb: SafeFileSystemWatcher.Collections.FileSystemEventCollection.FileSystemEventCollection(SafeFileSystemWatcher.Configurations.FileSystemEventConfiguration, System.Threading.CancellationToken, Microsoft.Extensions.Logging.ILogger(Of SafeFileSystemWatcher.Collections.FileSystemEventCollection))
+  nameWithType: FileSystemEventCollection.FileSystemEventCollection(FileSystemEventConfiguration, CancellationToken, ILogger<FileSystemEventCollection>)
+  nameWithType.vb: FileSystemEventCollection.FileSystemEventCollection(FileSystemEventConfiguration, CancellationToken, ILogger(Of FileSystemEventCollection))
+- uid: SafeFileSystemWatcher.Collections.FileSystemEventCollection.#ctor(System.Threading.CancellationToken,System.String,System.String,Microsoft.Extensions.Logging.ILogger{SafeFileSystemWatcher.Collections.FileSystemEventCollection})
+  name: FileSystemEventCollection(CancellationToken, String, String, ILogger<FileSystemEventCollection>)
+  href: api/SafeFileSystemWatcher.Collections.FileSystemEventCollection.html#SafeFileSystemWatcher_Collections_FileSystemEventCollection__ctor_System_Threading_CancellationToken_System_String_System_String_Microsoft_Extensions_Logging_ILogger_SafeFileSystemWatcher_Collections_FileSystemEventCollection__
+  commentId: M:SafeFileSystemWatcher.Collections.FileSystemEventCollection.#ctor(System.Threading.CancellationToken,System.String,System.String,Microsoft.Extensions.Logging.ILogger{SafeFileSystemWatcher.Collections.FileSystemEventCollection})
+  name.vb: FileSystemEventCollection(CancellationToken, String, String, ILogger(Of FileSystemEventCollection))
+  fullName: SafeFileSystemWatcher.Collections.FileSystemEventCollection.FileSystemEventCollection(System.Threading.CancellationToken, System.String, System.String, Microsoft.Extensions.Logging.ILogger<SafeFileSystemWatcher.Collections.FileSystemEventCollection>)
+  fullName.vb: SafeFileSystemWatcher.Collections.FileSystemEventCollection.FileSystemEventCollection(System.Threading.CancellationToken, System.String, System.String, Microsoft.Extensions.Logging.ILogger(Of SafeFileSystemWatcher.Collections.FileSystemEventCollection))
+  nameWithType: FileSystemEventCollection.FileSystemEventCollection(CancellationToken, String, String, ILogger<FileSystemEventCollection>)
+  nameWithType.vb: FileSystemEventCollection.FileSystemEventCollection(CancellationToken, String, String, ILogger(Of FileSystemEventCollection))
+- uid: SafeFileSystemWatcher.Collections.FileSystemEventCollection.#ctor*
+  name: FileSystemEventCollection
+  href: api/SafeFileSystemWatcher.Collections.FileSystemEventCollection.html#SafeFileSystemWatcher_Collections_FileSystemEventCollection__ctor_
+  commentId: Overload:SafeFileSystemWatcher.Collections.FileSystemEventCollection.#ctor
+  isSpec: "True"
+  fullName: SafeFileSystemWatcher.Collections.FileSystemEventCollection.FileSystemEventCollection
+  nameWithType: FileSystemEventCollection.FileSystemEventCollection
+- uid: SafeFileSystemWatcher.Collections.FileSystemEventCollection.Dispose
+  name: Dispose()
+  href: api/SafeFileSystemWatcher.Collections.FileSystemEventCollection.html#SafeFileSystemWatcher_Collections_FileSystemEventCollection_Dispose
+  commentId: M:SafeFileSystemWatcher.Collections.FileSystemEventCollection.Dispose
+  fullName: SafeFileSystemWatcher.Collections.FileSystemEventCollection.Dispose()
+  nameWithType: FileSystemEventCollection.Dispose()
+- uid: SafeFileSystemWatcher.Collections.FileSystemEventCollection.Dispose*
+  name: Dispose
+  href: api/SafeFileSystemWatcher.Collections.FileSystemEventCollection.html#SafeFileSystemWatcher_Collections_FileSystemEventCollection_Dispose_
+  commentId: Overload:SafeFileSystemWatcher.Collections.FileSystemEventCollection.Dispose
+  isSpec: "True"
+  fullName: SafeFileSystemWatcher.Collections.FileSystemEventCollection.Dispose
+  nameWithType: FileSystemEventCollection.Dispose
+- uid: SafeFileSystemWatcher.Collections.FileSystemEventCollection.GetEnumerator
+  name: GetEnumerator()
+  href: api/SafeFileSystemWatcher.Collections.FileSystemEventCollection.html#SafeFileSystemWatcher_Collections_FileSystemEventCollection_GetEnumerator
+  commentId: M:SafeFileSystemWatcher.Collections.FileSystemEventCollection.GetEnumerator
+  fullName: SafeFileSystemWatcher.Collections.FileSystemEventCollection.GetEnumerator()
+  nameWithType: FileSystemEventCollection.GetEnumerator()
+- uid: SafeFileSystemWatcher.Collections.FileSystemEventCollection.GetEnumerator*
+  name: GetEnumerator
+  href: api/SafeFileSystemWatcher.Collections.FileSystemEventCollection.html#SafeFileSystemWatcher_Collections_FileSystemEventCollection_GetEnumerator_
+  commentId: Overload:SafeFileSystemWatcher.Collections.FileSystemEventCollection.GetEnumerator
+  isSpec: "True"
+  fullName: SafeFileSystemWatcher.Collections.FileSystemEventCollection.GetEnumerator
+  nameWithType: FileSystemEventCollection.GetEnumerator
+- uid: SafeFileSystemWatcher.Collections.FileSystemEventCollection.System#Collections#IEnumerable#GetEnumerator
+  name: IEnumerable.GetEnumerator()
+  href: api/SafeFileSystemWatcher.Collections.FileSystemEventCollection.html#SafeFileSystemWatcher_Collections_FileSystemEventCollection_System_Collections_IEnumerable_GetEnumerator
+  commentId: M:SafeFileSystemWatcher.Collections.FileSystemEventCollection.System#Collections#IEnumerable#GetEnumerator
+  name.vb: System.Collections.IEnumerable.GetEnumerator()
+  fullName: SafeFileSystemWatcher.Collections.FileSystemEventCollection.System.Collections.IEnumerable.GetEnumerator()
+  nameWithType: FileSystemEventCollection.IEnumerable.GetEnumerator()
+  nameWithType.vb: FileSystemEventCollection.System.Collections.IEnumerable.GetEnumerator()
+- uid: SafeFileSystemWatcher.Collections.FileSystemEventCollection.System#Collections#IEnumerable#GetEnumerator*
+  name: IEnumerable.GetEnumerator
+  href: api/SafeFileSystemWatcher.Collections.FileSystemEventCollection.html#SafeFileSystemWatcher_Collections_FileSystemEventCollection_System_Collections_IEnumerable_GetEnumerator_
+  commentId: Overload:SafeFileSystemWatcher.Collections.FileSystemEventCollection.System#Collections#IEnumerable#GetEnumerator
+  isSpec: "True"
+  name.vb: System.Collections.IEnumerable.GetEnumerator
+  fullName: SafeFileSystemWatcher.Collections.FileSystemEventCollection.System.Collections.IEnumerable.GetEnumerator
+  nameWithType: FileSystemEventCollection.IEnumerable.GetEnumerator
+  nameWithType.vb: FileSystemEventCollection.System.Collections.IEnumerable.GetEnumerator
 - uid: SafeFileSystemWatcher.Configurations
   name: SafeFileSystemWatcher.Configurations
   href: api/SafeFileSystemWatcher.Configurations.html
@@ -77,169 +151,101 @@ references:
   isSpec: "True"
   fullName: SafeFileSystemWatcher.Configurations.FileSystemEventConfiguration.DuplicateEventDelayWindow
   nameWithType: FileSystemEventConfiguration.DuplicateEventDelayWindow
-- uid: SafeFileSystemWatcher.FileSystemEventCollection
-  name: FileSystemEventCollection
-  href: api/SafeFileSystemWatcher.FileSystemEventCollection.html
-  commentId: T:SafeFileSystemWatcher.FileSystemEventCollection
-  fullName: SafeFileSystemWatcher.FileSystemEventCollection
-  nameWithType: FileSystemEventCollection
-- uid: SafeFileSystemWatcher.FileSystemEventCollection.#ctor(SafeFileSystemWatcher.Configurations.FileSystemEventConfiguration,System.Threading.CancellationToken,Microsoft.Extensions.Logging.ILogger{SafeFileSystemWatcher.FileSystemEventCollection})
-  name: FileSystemEventCollection(FileSystemEventConfiguration, CancellationToken, ILogger<FileSystemEventCollection>)
-  href: api/SafeFileSystemWatcher.FileSystemEventCollection.html#SafeFileSystemWatcher_FileSystemEventCollection__ctor_SafeFileSystemWatcher_Configurations_FileSystemEventConfiguration_System_Threading_CancellationToken_Microsoft_Extensions_Logging_ILogger_SafeFileSystemWatcher_FileSystemEventCollection__
-  commentId: M:SafeFileSystemWatcher.FileSystemEventCollection.#ctor(SafeFileSystemWatcher.Configurations.FileSystemEventConfiguration,System.Threading.CancellationToken,Microsoft.Extensions.Logging.ILogger{SafeFileSystemWatcher.FileSystemEventCollection})
-  name.vb: FileSystemEventCollection(FileSystemEventConfiguration, CancellationToken, ILogger(Of FileSystemEventCollection))
-  fullName: SafeFileSystemWatcher.FileSystemEventCollection.FileSystemEventCollection(SafeFileSystemWatcher.Configurations.FileSystemEventConfiguration, System.Threading.CancellationToken, Microsoft.Extensions.Logging.ILogger<SafeFileSystemWatcher.FileSystemEventCollection>)
-  fullName.vb: SafeFileSystemWatcher.FileSystemEventCollection.FileSystemEventCollection(SafeFileSystemWatcher.Configurations.FileSystemEventConfiguration, System.Threading.CancellationToken, Microsoft.Extensions.Logging.ILogger(Of SafeFileSystemWatcher.FileSystemEventCollection))
-  nameWithType: FileSystemEventCollection.FileSystemEventCollection(FileSystemEventConfiguration, CancellationToken, ILogger<FileSystemEventCollection>)
-  nameWithType.vb: FileSystemEventCollection.FileSystemEventCollection(FileSystemEventConfiguration, CancellationToken, ILogger(Of FileSystemEventCollection))
-- uid: SafeFileSystemWatcher.FileSystemEventCollection.#ctor(System.Threading.CancellationToken,System.String,System.String,Microsoft.Extensions.Logging.ILogger{SafeFileSystemWatcher.FileSystemEventCollection})
-  name: FileSystemEventCollection(CancellationToken, String, String, ILogger<FileSystemEventCollection>)
-  href: api/SafeFileSystemWatcher.FileSystemEventCollection.html#SafeFileSystemWatcher_FileSystemEventCollection__ctor_System_Threading_CancellationToken_System_String_System_String_Microsoft_Extensions_Logging_ILogger_SafeFileSystemWatcher_FileSystemEventCollection__
-  commentId: M:SafeFileSystemWatcher.FileSystemEventCollection.#ctor(System.Threading.CancellationToken,System.String,System.String,Microsoft.Extensions.Logging.ILogger{SafeFileSystemWatcher.FileSystemEventCollection})
-  name.vb: FileSystemEventCollection(CancellationToken, String, String, ILogger(Of FileSystemEventCollection))
-  fullName: SafeFileSystemWatcher.FileSystemEventCollection.FileSystemEventCollection(System.Threading.CancellationToken, System.String, System.String, Microsoft.Extensions.Logging.ILogger<SafeFileSystemWatcher.FileSystemEventCollection>)
-  fullName.vb: SafeFileSystemWatcher.FileSystemEventCollection.FileSystemEventCollection(System.Threading.CancellationToken, System.String, System.String, Microsoft.Extensions.Logging.ILogger(Of SafeFileSystemWatcher.FileSystemEventCollection))
-  nameWithType: FileSystemEventCollection.FileSystemEventCollection(CancellationToken, String, String, ILogger<FileSystemEventCollection>)
-  nameWithType.vb: FileSystemEventCollection.FileSystemEventCollection(CancellationToken, String, String, ILogger(Of FileSystemEventCollection))
-- uid: SafeFileSystemWatcher.FileSystemEventCollection.#ctor*
-  name: FileSystemEventCollection
-  href: api/SafeFileSystemWatcher.FileSystemEventCollection.html#SafeFileSystemWatcher_FileSystemEventCollection__ctor_
-  commentId: Overload:SafeFileSystemWatcher.FileSystemEventCollection.#ctor
-  isSpec: "True"
-  fullName: SafeFileSystemWatcher.FileSystemEventCollection.FileSystemEventCollection
-  nameWithType: FileSystemEventCollection.FileSystemEventCollection
-- uid: SafeFileSystemWatcher.FileSystemEventCollection.Dispose
-  name: Dispose()
-  href: api/SafeFileSystemWatcher.FileSystemEventCollection.html#SafeFileSystemWatcher_FileSystemEventCollection_Dispose
-  commentId: M:SafeFileSystemWatcher.FileSystemEventCollection.Dispose
-  fullName: SafeFileSystemWatcher.FileSystemEventCollection.Dispose()
-  nameWithType: FileSystemEventCollection.Dispose()
-- uid: SafeFileSystemWatcher.FileSystemEventCollection.Dispose*
-  name: Dispose
-  href: api/SafeFileSystemWatcher.FileSystemEventCollection.html#SafeFileSystemWatcher_FileSystemEventCollection_Dispose_
-  commentId: Overload:SafeFileSystemWatcher.FileSystemEventCollection.Dispose
-  isSpec: "True"
-  fullName: SafeFileSystemWatcher.FileSystemEventCollection.Dispose
-  nameWithType: FileSystemEventCollection.Dispose
-- uid: SafeFileSystemWatcher.FileSystemEventCollection.GetEnumerator
-  name: GetEnumerator()
-  href: api/SafeFileSystemWatcher.FileSystemEventCollection.html#SafeFileSystemWatcher_FileSystemEventCollection_GetEnumerator
-  commentId: M:SafeFileSystemWatcher.FileSystemEventCollection.GetEnumerator
-  fullName: SafeFileSystemWatcher.FileSystemEventCollection.GetEnumerator()
-  nameWithType: FileSystemEventCollection.GetEnumerator()
-- uid: SafeFileSystemWatcher.FileSystemEventCollection.GetEnumerator*
-  name: GetEnumerator
-  href: api/SafeFileSystemWatcher.FileSystemEventCollection.html#SafeFileSystemWatcher_FileSystemEventCollection_GetEnumerator_
-  commentId: Overload:SafeFileSystemWatcher.FileSystemEventCollection.GetEnumerator
-  isSpec: "True"
-  fullName: SafeFileSystemWatcher.FileSystemEventCollection.GetEnumerator
-  nameWithType: FileSystemEventCollection.GetEnumerator
-- uid: SafeFileSystemWatcher.FileSystemEventCollection.System#Collections#IEnumerable#GetEnumerator
-  name: IEnumerable.GetEnumerator()
-  href: api/SafeFileSystemWatcher.FileSystemEventCollection.html#SafeFileSystemWatcher_FileSystemEventCollection_System_Collections_IEnumerable_GetEnumerator
-  commentId: M:SafeFileSystemWatcher.FileSystemEventCollection.System#Collections#IEnumerable#GetEnumerator
-  name.vb: System.Collections.IEnumerable.GetEnumerator()
-  fullName: SafeFileSystemWatcher.FileSystemEventCollection.System.Collections.IEnumerable.GetEnumerator()
-  nameWithType: FileSystemEventCollection.IEnumerable.GetEnumerator()
-  nameWithType.vb: FileSystemEventCollection.System.Collections.IEnumerable.GetEnumerator()
-- uid: SafeFileSystemWatcher.FileSystemEventCollection.System#Collections#IEnumerable#GetEnumerator*
-  name: IEnumerable.GetEnumerator
-  href: api/SafeFileSystemWatcher.FileSystemEventCollection.html#SafeFileSystemWatcher_FileSystemEventCollection_System_Collections_IEnumerable_GetEnumerator_
-  commentId: Overload:SafeFileSystemWatcher.FileSystemEventCollection.System#Collections#IEnumerable#GetEnumerator
-  isSpec: "True"
-  name.vb: System.Collections.IEnumerable.GetEnumerator
-  fullName: SafeFileSystemWatcher.FileSystemEventCollection.System.Collections.IEnumerable.GetEnumerator
-  nameWithType: FileSystemEventCollection.IEnumerable.GetEnumerator
-  nameWithType.vb: FileSystemEventCollection.System.Collections.IEnumerable.GetEnumerator
-- uid: SafeFileSystemWatcher.Watcher
+- uid: SafeFileSystemWatcher.IO
+  name: SafeFileSystemWatcher.IO
+  href: api/SafeFileSystemWatcher.IO.html
+  commentId: N:SafeFileSystemWatcher.IO
+  fullName: SafeFileSystemWatcher.IO
+  nameWithType: SafeFileSystemWatcher.IO
+- uid: SafeFileSystemWatcher.IO.Watcher
   name: Watcher
-  href: api/SafeFileSystemWatcher.Watcher.html
-  commentId: T:SafeFileSystemWatcher.Watcher
-  fullName: SafeFileSystemWatcher.Watcher
+  href: api/SafeFileSystemWatcher.IO.Watcher.html
+  commentId: T:SafeFileSystemWatcher.IO.Watcher
+  fullName: SafeFileSystemWatcher.IO.Watcher
   nameWithType: Watcher
-- uid: SafeFileSystemWatcher.Watcher.#ctor(SafeFileSystemWatcher.Configurations.FileSystemEventConfiguration,System.Threading.CancellationToken,Microsoft.Extensions.Logging.ILogger{SafeFileSystemWatcher.Watcher})
+- uid: SafeFileSystemWatcher.IO.Watcher.#ctor(SafeFileSystemWatcher.Configurations.FileSystemEventConfiguration,System.Threading.CancellationToken,Microsoft.Extensions.Logging.ILogger{SafeFileSystemWatcher.IO.Watcher})
   name: Watcher(FileSystemEventConfiguration, CancellationToken, ILogger<Watcher>)
-  href: api/SafeFileSystemWatcher.Watcher.html#SafeFileSystemWatcher_Watcher__ctor_SafeFileSystemWatcher_Configurations_FileSystemEventConfiguration_System_Threading_CancellationToken_Microsoft_Extensions_Logging_ILogger_SafeFileSystemWatcher_Watcher__
-  commentId: M:SafeFileSystemWatcher.Watcher.#ctor(SafeFileSystemWatcher.Configurations.FileSystemEventConfiguration,System.Threading.CancellationToken,Microsoft.Extensions.Logging.ILogger{SafeFileSystemWatcher.Watcher})
+  href: api/SafeFileSystemWatcher.IO.Watcher.html#SafeFileSystemWatcher_IO_Watcher__ctor_SafeFileSystemWatcher_Configurations_FileSystemEventConfiguration_System_Threading_CancellationToken_Microsoft_Extensions_Logging_ILogger_SafeFileSystemWatcher_IO_Watcher__
+  commentId: M:SafeFileSystemWatcher.IO.Watcher.#ctor(SafeFileSystemWatcher.Configurations.FileSystemEventConfiguration,System.Threading.CancellationToken,Microsoft.Extensions.Logging.ILogger{SafeFileSystemWatcher.IO.Watcher})
   name.vb: Watcher(FileSystemEventConfiguration, CancellationToken, ILogger(Of Watcher))
-  fullName: SafeFileSystemWatcher.Watcher.Watcher(SafeFileSystemWatcher.Configurations.FileSystemEventConfiguration, System.Threading.CancellationToken, Microsoft.Extensions.Logging.ILogger<SafeFileSystemWatcher.Watcher>)
-  fullName.vb: SafeFileSystemWatcher.Watcher.Watcher(SafeFileSystemWatcher.Configurations.FileSystemEventConfiguration, System.Threading.CancellationToken, Microsoft.Extensions.Logging.ILogger(Of SafeFileSystemWatcher.Watcher))
+  fullName: SafeFileSystemWatcher.IO.Watcher.Watcher(SafeFileSystemWatcher.Configurations.FileSystemEventConfiguration, System.Threading.CancellationToken, Microsoft.Extensions.Logging.ILogger<SafeFileSystemWatcher.IO.Watcher>)
+  fullName.vb: SafeFileSystemWatcher.IO.Watcher.Watcher(SafeFileSystemWatcher.Configurations.FileSystemEventConfiguration, System.Threading.CancellationToken, Microsoft.Extensions.Logging.ILogger(Of SafeFileSystemWatcher.IO.Watcher))
   nameWithType: Watcher.Watcher(FileSystemEventConfiguration, CancellationToken, ILogger<Watcher>)
   nameWithType.vb: Watcher.Watcher(FileSystemEventConfiguration, CancellationToken, ILogger(Of Watcher))
-- uid: SafeFileSystemWatcher.Watcher.#ctor(System.Action{System.IO.FileSystemEventArgs},SafeFileSystemWatcher.Configurations.FileSystemEventConfiguration,System.Threading.CancellationToken,Microsoft.Extensions.Logging.ILogger{SafeFileSystemWatcher.Watcher})
+- uid: SafeFileSystemWatcher.IO.Watcher.#ctor(System.Action{System.IO.FileSystemEventArgs},SafeFileSystemWatcher.Configurations.FileSystemEventConfiguration,System.Threading.CancellationToken,Microsoft.Extensions.Logging.ILogger{SafeFileSystemWatcher.IO.Watcher})
   name: Watcher(Action<FileSystemEventArgs>, FileSystemEventConfiguration, CancellationToken, ILogger<Watcher>)
-  href: api/SafeFileSystemWatcher.Watcher.html#SafeFileSystemWatcher_Watcher__ctor_System_Action_System_IO_FileSystemEventArgs__SafeFileSystemWatcher_Configurations_FileSystemEventConfiguration_System_Threading_CancellationToken_Microsoft_Extensions_Logging_ILogger_SafeFileSystemWatcher_Watcher__
-  commentId: M:SafeFileSystemWatcher.Watcher.#ctor(System.Action{System.IO.FileSystemEventArgs},SafeFileSystemWatcher.Configurations.FileSystemEventConfiguration,System.Threading.CancellationToken,Microsoft.Extensions.Logging.ILogger{SafeFileSystemWatcher.Watcher})
+  href: api/SafeFileSystemWatcher.IO.Watcher.html#SafeFileSystemWatcher_IO_Watcher__ctor_System_Action_System_IO_FileSystemEventArgs__SafeFileSystemWatcher_Configurations_FileSystemEventConfiguration_System_Threading_CancellationToken_Microsoft_Extensions_Logging_ILogger_SafeFileSystemWatcher_IO_Watcher__
+  commentId: M:SafeFileSystemWatcher.IO.Watcher.#ctor(System.Action{System.IO.FileSystemEventArgs},SafeFileSystemWatcher.Configurations.FileSystemEventConfiguration,System.Threading.CancellationToken,Microsoft.Extensions.Logging.ILogger{SafeFileSystemWatcher.IO.Watcher})
   name.vb: Watcher(Action(Of FileSystemEventArgs), FileSystemEventConfiguration, CancellationToken, ILogger(Of Watcher))
-  fullName: SafeFileSystemWatcher.Watcher.Watcher(System.Action<System.IO.FileSystemEventArgs>, SafeFileSystemWatcher.Configurations.FileSystemEventConfiguration, System.Threading.CancellationToken, Microsoft.Extensions.Logging.ILogger<SafeFileSystemWatcher.Watcher>)
-  fullName.vb: SafeFileSystemWatcher.Watcher.Watcher(System.Action(Of System.IO.FileSystemEventArgs), SafeFileSystemWatcher.Configurations.FileSystemEventConfiguration, System.Threading.CancellationToken, Microsoft.Extensions.Logging.ILogger(Of SafeFileSystemWatcher.Watcher))
+  fullName: SafeFileSystemWatcher.IO.Watcher.Watcher(System.Action<System.IO.FileSystemEventArgs>, SafeFileSystemWatcher.Configurations.FileSystemEventConfiguration, System.Threading.CancellationToken, Microsoft.Extensions.Logging.ILogger<SafeFileSystemWatcher.IO.Watcher>)
+  fullName.vb: SafeFileSystemWatcher.IO.Watcher.Watcher(System.Action(Of System.IO.FileSystemEventArgs), SafeFileSystemWatcher.Configurations.FileSystemEventConfiguration, System.Threading.CancellationToken, Microsoft.Extensions.Logging.ILogger(Of SafeFileSystemWatcher.IO.Watcher))
   nameWithType: Watcher.Watcher(Action<FileSystemEventArgs>, FileSystemEventConfiguration, CancellationToken, ILogger<Watcher>)
   nameWithType.vb: Watcher.Watcher(Action(Of FileSystemEventArgs), FileSystemEventConfiguration, CancellationToken, ILogger(Of Watcher))
-- uid: SafeFileSystemWatcher.Watcher.#ctor*
+- uid: SafeFileSystemWatcher.IO.Watcher.#ctor*
   name: Watcher
-  href: api/SafeFileSystemWatcher.Watcher.html#SafeFileSystemWatcher_Watcher__ctor_
-  commentId: Overload:SafeFileSystemWatcher.Watcher.#ctor
+  href: api/SafeFileSystemWatcher.IO.Watcher.html#SafeFileSystemWatcher_IO_Watcher__ctor_
+  commentId: Overload:SafeFileSystemWatcher.IO.Watcher.#ctor
   isSpec: "True"
-  fullName: SafeFileSystemWatcher.Watcher.Watcher
+  fullName: SafeFileSystemWatcher.IO.Watcher.Watcher
   nameWithType: Watcher.Watcher
-- uid: SafeFileSystemWatcher.Watcher.AddCallback(System.Action{System.IO.FileSystemEventArgs})
+- uid: SafeFileSystemWatcher.IO.Watcher.AddCallback(System.Action{System.IO.FileSystemEventArgs})
   name: AddCallback(Action<FileSystemEventArgs>)
-  href: api/SafeFileSystemWatcher.Watcher.html#SafeFileSystemWatcher_Watcher_AddCallback_System_Action_System_IO_FileSystemEventArgs__
-  commentId: M:SafeFileSystemWatcher.Watcher.AddCallback(System.Action{System.IO.FileSystemEventArgs})
+  href: api/SafeFileSystemWatcher.IO.Watcher.html#SafeFileSystemWatcher_IO_Watcher_AddCallback_System_Action_System_IO_FileSystemEventArgs__
+  commentId: M:SafeFileSystemWatcher.IO.Watcher.AddCallback(System.Action{System.IO.FileSystemEventArgs})
   name.vb: AddCallback(Action(Of FileSystemEventArgs))
-  fullName: SafeFileSystemWatcher.Watcher.AddCallback(System.Action<System.IO.FileSystemEventArgs>)
-  fullName.vb: SafeFileSystemWatcher.Watcher.AddCallback(System.Action(Of System.IO.FileSystemEventArgs))
+  fullName: SafeFileSystemWatcher.IO.Watcher.AddCallback(System.Action<System.IO.FileSystemEventArgs>)
+  fullName.vb: SafeFileSystemWatcher.IO.Watcher.AddCallback(System.Action(Of System.IO.FileSystemEventArgs))
   nameWithType: Watcher.AddCallback(Action<FileSystemEventArgs>)
   nameWithType.vb: Watcher.AddCallback(Action(Of FileSystemEventArgs))
-- uid: SafeFileSystemWatcher.Watcher.AddCallback*
+- uid: SafeFileSystemWatcher.IO.Watcher.AddCallback*
   name: AddCallback
-  href: api/SafeFileSystemWatcher.Watcher.html#SafeFileSystemWatcher_Watcher_AddCallback_
-  commentId: Overload:SafeFileSystemWatcher.Watcher.AddCallback
+  href: api/SafeFileSystemWatcher.IO.Watcher.html#SafeFileSystemWatcher_IO_Watcher_AddCallback_
+  commentId: Overload:SafeFileSystemWatcher.IO.Watcher.AddCallback
   isSpec: "True"
-  fullName: SafeFileSystemWatcher.Watcher.AddCallback
+  fullName: SafeFileSystemWatcher.IO.Watcher.AddCallback
   nameWithType: Watcher.AddCallback
-- uid: SafeFileSystemWatcher.Watcher.Dispose
+- uid: SafeFileSystemWatcher.IO.Watcher.Dispose
   name: Dispose()
-  href: api/SafeFileSystemWatcher.Watcher.html#SafeFileSystemWatcher_Watcher_Dispose
-  commentId: M:SafeFileSystemWatcher.Watcher.Dispose
-  fullName: SafeFileSystemWatcher.Watcher.Dispose()
+  href: api/SafeFileSystemWatcher.IO.Watcher.html#SafeFileSystemWatcher_IO_Watcher_Dispose
+  commentId: M:SafeFileSystemWatcher.IO.Watcher.Dispose
+  fullName: SafeFileSystemWatcher.IO.Watcher.Dispose()
   nameWithType: Watcher.Dispose()
-- uid: SafeFileSystemWatcher.Watcher.Dispose*
+- uid: SafeFileSystemWatcher.IO.Watcher.Dispose*
   name: Dispose
-  href: api/SafeFileSystemWatcher.Watcher.html#SafeFileSystemWatcher_Watcher_Dispose_
-  commentId: Overload:SafeFileSystemWatcher.Watcher.Dispose
+  href: api/SafeFileSystemWatcher.IO.Watcher.html#SafeFileSystemWatcher_IO_Watcher_Dispose_
+  commentId: Overload:SafeFileSystemWatcher.IO.Watcher.Dispose
   isSpec: "True"
-  fullName: SafeFileSystemWatcher.Watcher.Dispose
+  fullName: SafeFileSystemWatcher.IO.Watcher.Dispose
   nameWithType: Watcher.Dispose
-- uid: SafeFileSystemWatcher.Watcher.RemoveCallback(System.Action{System.IO.FileSystemEventArgs})
+- uid: SafeFileSystemWatcher.IO.Watcher.RemoveCallback(System.Action{System.IO.FileSystemEventArgs})
   name: RemoveCallback(Action<FileSystemEventArgs>)
-  href: api/SafeFileSystemWatcher.Watcher.html#SafeFileSystemWatcher_Watcher_RemoveCallback_System_Action_System_IO_FileSystemEventArgs__
-  commentId: M:SafeFileSystemWatcher.Watcher.RemoveCallback(System.Action{System.IO.FileSystemEventArgs})
+  href: api/SafeFileSystemWatcher.IO.Watcher.html#SafeFileSystemWatcher_IO_Watcher_RemoveCallback_System_Action_System_IO_FileSystemEventArgs__
+  commentId: M:SafeFileSystemWatcher.IO.Watcher.RemoveCallback(System.Action{System.IO.FileSystemEventArgs})
   name.vb: RemoveCallback(Action(Of FileSystemEventArgs))
-  fullName: SafeFileSystemWatcher.Watcher.RemoveCallback(System.Action<System.IO.FileSystemEventArgs>)
-  fullName.vb: SafeFileSystemWatcher.Watcher.RemoveCallback(System.Action(Of System.IO.FileSystemEventArgs))
+  fullName: SafeFileSystemWatcher.IO.Watcher.RemoveCallback(System.Action<System.IO.FileSystemEventArgs>)
+  fullName.vb: SafeFileSystemWatcher.IO.Watcher.RemoveCallback(System.Action(Of System.IO.FileSystemEventArgs))
   nameWithType: Watcher.RemoveCallback(Action<FileSystemEventArgs>)
   nameWithType.vb: Watcher.RemoveCallback(Action(Of FileSystemEventArgs))
-- uid: SafeFileSystemWatcher.Watcher.RemoveCallback*
+- uid: SafeFileSystemWatcher.IO.Watcher.RemoveCallback*
   name: RemoveCallback
-  href: api/SafeFileSystemWatcher.Watcher.html#SafeFileSystemWatcher_Watcher_RemoveCallback_
-  commentId: Overload:SafeFileSystemWatcher.Watcher.RemoveCallback
+  href: api/SafeFileSystemWatcher.IO.Watcher.html#SafeFileSystemWatcher_IO_Watcher_RemoveCallback_
+  commentId: Overload:SafeFileSystemWatcher.IO.Watcher.RemoveCallback
   isSpec: "True"
-  fullName: SafeFileSystemWatcher.Watcher.RemoveCallback
+  fullName: SafeFileSystemWatcher.IO.Watcher.RemoveCallback
   nameWithType: Watcher.RemoveCallback
-- uid: SafeFileSystemWatcher.Watcher.Watch(System.Action{System.IO.FileSystemEventArgs})
+- uid: SafeFileSystemWatcher.IO.Watcher.Watch(System.Action{System.IO.FileSystemEventArgs})
   name: Watch(Action<FileSystemEventArgs>)
-  href: api/SafeFileSystemWatcher.Watcher.html#SafeFileSystemWatcher_Watcher_Watch_System_Action_System_IO_FileSystemEventArgs__
-  commentId: M:SafeFileSystemWatcher.Watcher.Watch(System.Action{System.IO.FileSystemEventArgs})
+  href: api/SafeFileSystemWatcher.IO.Watcher.html#SafeFileSystemWatcher_IO_Watcher_Watch_System_Action_System_IO_FileSystemEventArgs__
+  commentId: M:SafeFileSystemWatcher.IO.Watcher.Watch(System.Action{System.IO.FileSystemEventArgs})
   name.vb: Watch(Action(Of FileSystemEventArgs))
-  fullName: SafeFileSystemWatcher.Watcher.Watch(System.Action<System.IO.FileSystemEventArgs>)
-  fullName.vb: SafeFileSystemWatcher.Watcher.Watch(System.Action(Of System.IO.FileSystemEventArgs))
+  fullName: SafeFileSystemWatcher.IO.Watcher.Watch(System.Action<System.IO.FileSystemEventArgs>)
+  fullName.vb: SafeFileSystemWatcher.IO.Watcher.Watch(System.Action(Of System.IO.FileSystemEventArgs))
   nameWithType: Watcher.Watch(Action<FileSystemEventArgs>)
   nameWithType.vb: Watcher.Watch(Action(Of FileSystemEventArgs))
-- uid: SafeFileSystemWatcher.Watcher.Watch*
+- uid: SafeFileSystemWatcher.IO.Watcher.Watch*
   name: Watch
-  href: api/SafeFileSystemWatcher.Watcher.html#SafeFileSystemWatcher_Watcher_Watch_
-  commentId: Overload:SafeFileSystemWatcher.Watcher.Watch
+  href: api/SafeFileSystemWatcher.IO.Watcher.html#SafeFileSystemWatcher_IO_Watcher_Watch_
+  commentId: Overload:SafeFileSystemWatcher.IO.Watcher.Watch
   isSpec: "True"
-  fullName: SafeFileSystemWatcher.Watcher.Watch
+  fullName: SafeFileSystemWatcher.IO.Watcher.Watch
   nameWithType: Watcher.Watch

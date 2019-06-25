@@ -53,11 +53,35 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/api/SafeFileSystemWatcher.Collections.FileSystemEventCollection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SafeFileSystemWatcher.Collections.FileSystemEventCollection.html",
+          "hash": "vbvLkts+2N8HJAflVQK+vg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/SafeFileSystemWatcher.Collections.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SafeFileSystemWatcher.Collections.html",
+          "hash": "d1qE9XlYH5QdibZX/+rKqw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/api/SafeFileSystemWatcher.Configurations.FileSystemEventConfiguration.yml",
       "output": {
         ".html": {
           "relative_path": "api/SafeFileSystemWatcher.Configurations.FileSystemEventConfiguration.html",
-          "hash": "DTftOrrCLcq4wB9tUvEmNw=="
+          "hash": "hy0yxGSWHNeCCe+NofdF0g=="
         }
       },
       "is_incremental": false,
@@ -69,7 +93,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SafeFileSystemWatcher.Configurations.html",
-          "hash": "YohwDMjO9824IDlxVOjcwA=="
+          "hash": "Hfr+LDp26xRi7jxrcwS7eg=="
         }
       },
       "is_incremental": false,
@@ -77,11 +101,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/api/SafeFileSystemWatcher.FileSystemEventCollection.yml",
+      "source_relative_path": "obj/api/SafeFileSystemWatcher.IO.Watcher.yml",
       "output": {
         ".html": {
-          "relative_path": "api/SafeFileSystemWatcher.FileSystemEventCollection.html",
-          "hash": "2ecGvrt0Ie5rooO0ddkAEA=="
+          "relative_path": "api/SafeFileSystemWatcher.IO.Watcher.html",
+          "hash": "uIBOmCAQXZW9wBBlZdP0hQ=="
         }
       },
       "is_incremental": false,
@@ -89,23 +113,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/api/SafeFileSystemWatcher.Watcher.yml",
+      "source_relative_path": "obj/api/SafeFileSystemWatcher.IO.yml",
       "output": {
         ".html": {
-          "relative_path": "api/SafeFileSystemWatcher.Watcher.html",
-          "hash": "9WProgAx2rMUgUMbotdgsQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/api/SafeFileSystemWatcher.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/SafeFileSystemWatcher.html",
-          "hash": "Ie4IU+odwi/7Hc+IduRbBQ=="
+          "relative_path": "api/SafeFileSystemWatcher.IO.html",
+          "hash": "nOTKDZAcQSXmuLJLHgTRMg=="
         }
       },
       "is_incremental": false,
@@ -117,7 +129,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "kaN2JnrYu/EOXyH5fvjnLw=="
+          "hash": "CijwYTCfln361JW+2Vkmag=="
         }
       },
       "is_incremental": false,
@@ -129,7 +141,7 @@
       "output": {
         ".html": {
           "relative_path": "toc.html",
-          "hash": "IrJBgQS1wYZl0pBQd+ifYg=="
+          "hash": "/LWspW2L3XlM3drJhBoSXQ=="
         }
       },
       "is_incremental": false,
@@ -147,13 +159,6 @@
         "full_build_reason_code": "NoAvailableBuildCache"
       },
       "processors": {
-        "TocDocumentProcessor": {
-          "can_incremental": false,
-          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
-          "incrementalPhase": "build",
-          "total_file_count": 0,
-          "skipped_file_count": 0
-        },
         "ConceptualDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
@@ -163,7 +168,14 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 5,
+          "total_file_count": 6,
+          "skipped_file_count": 0
+        },
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
           "skipped_file_count": 0
         }
       }
